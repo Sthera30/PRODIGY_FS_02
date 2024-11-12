@@ -1,0 +1,58 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 4rem;
+}
+
+.login {
+    background: #fff;
+    padding: 2rem;
+    width: 32rem;
+}
+
+.logo-container img {
+    width: 2rem;
+}
+
+.login form input {
+    width: 100%;
+    margin: 1rem 0rem;
+    border: .1rem solid hsl(0, 7%, 89%);
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.btnSignIn {
+    color: #fff;
+    background: linear-gradient(65deg, hsl(39, 93%, 47%), hsl(300, 82%, 55%));
+    padding: 1rem 1.5rem;
+    border-radius: 3rem;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.btnSignIn:hover{
+    background: linear-gradient(65deg, hsl(39, 97%, 62%), hsl(300, 96%, 45%));
+
+}
+
+.sign-up{
+   color:hsl(39, 93%, 47%)
+}
+
+.login form a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center !important;
+    color: hsl(197, 99%, 27%);
+    cursor: pointer;
+}
+
+.pass-con {
+    display: flex;
+    justify-content: space-between;
+}

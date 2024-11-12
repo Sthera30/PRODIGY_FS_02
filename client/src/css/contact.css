@@ -1,0 +1,82 @@
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+.title h2 {
+    color: hsl(39, 92%, 45%);
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 5rem;
+    margin-top: 6rem;
+}
+
+.contact-right form .form-con {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-left{
+    flex: 1 1 25rem;
+}
+
+.contact-right{
+    flex: 1 1 25rem;
+}
+
+.contact-left span {
+    font-size: 1.8rem;
+}
+
+.contact-left p {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-right form input {
+    width: 90% !important;
+    padding: .9rem;
+    border-radius: .5rem;
+    margin: 1rem 0rem;
+}
+
+.contact-right form textarea {
+    margin-top: 1rem;
+    padding: .8rem;
+    width: 90% !important;
+
+}
+
+.contact-right form button {
+    margin-top: 1rem;
+    color: #fff;
+    background: hsl(39, 96%, 45%);
+    border-radius: 3rem;
+    padding: .8rem 1.5rem;
+    cursor: pointer;
+}
+
+.working-h {
+    margin-top: 2.5rem;
+}
+
+.working-h p {
+    display: flex;
+    align-items: center !important;
+}
+
+.working-h p p {
+    margin-bottom: 0rem !important;
+}
+
+.working-h p p {
+    color: rgb(3, 119, 3);
+}

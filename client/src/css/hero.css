@@ -1,0 +1,117 @@
+body {
+    background: linear-gradient(180deg, hsl(349, 74%, 87%), #fff);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 2%;
+    margin-top: -5rem;
+
+}
+
+.left-container {
+    flex: 1 1 35rem;
+    max-width: 25rem;
+}
+
+.left-container p {
+    line-height: 1.4;
+    font-size: 1.2rem;
+    padding: .8rem 0rem;
+}
+
+.left-container h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.right-container {
+    flex: 1 1 35rem;
+}
+
+.right-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.serious {
+    color: hsl(0, 91%, 35%);
+}
+
+.food {
+    color: hsl(39, 93%, 43%);
+}
+
+.delivery {
+    color: hsl(60, 94%, 30%);
+}
+
+.search-container {
+    position: absolute;
+    top:25rem;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 3rem;
+    padding: 0rem 4%;
+    margin: 2rem 0rem;
+    width: 25rem;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 1rem;
+}
+
+.search-container .searc {
+    font-size: 1rem;
+    color: #fff;
+    background: orange;
+    width: 2rem;
+    line-height: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    padding: .5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: -3rem;
+}
+
+
+.btnExplore {
+    color: #fff;
+    background: hsl(39, 96%, 45%);
+    padding: 1rem 2rem;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+.btnExplore:hover {
+    background: hsl(39, 69%, 59%);
+}
+
+.bounce-stretch {
+    animation: bounceStretch 1.5s infinite alternate;
+}
+
+@keyframes bounceStretch {
+    0% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.5);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}

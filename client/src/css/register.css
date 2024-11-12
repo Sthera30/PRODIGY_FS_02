@@ -1,0 +1,63 @@
+.register-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.profile-co{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.register-co{
+    background: #fff;
+    padding: 1.5rem;
+    width: 30rem;
+}
+
+.register-co form label{
+    color: #333;
+}
+
+
+.register-co form input{
+    width: 100% !important;
+    border: .1rem solid hsl(0, 6%, 90%) !important;
+    padding: .8rem;
+    border-radius: .5rem;
+    margin: .5rem 0rem;
+}
+
+.passContainer{
+    display: flex;
+    gap: 1rem;
+}
+
+.btnRegister{
+    color: #fff;
+    background: linear-gradient(65deg, hsl(39, 93%, 47%), hsl(300, 82%, 55%));
+    padding: 1rem 1.5rem;
+    width: 100%;
+    border-radius: 3rem;
+    cursor: pointer;
+    margin: 1rem 0rem;
+}
+
+
+.btnRegister:hover{
+    background: linear-gradient(65deg, hsl(39, 97%, 62%), hsl(300, 96%, 45%));
+}
+
+.sign-in{
+    color: orange !important;
+}
+
+.ancLogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: hsl(197, 98%, 36%);
+}

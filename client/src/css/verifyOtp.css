@@ -1,0 +1,53 @@
+.verify-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.verification{
+    background: #fff;
+    padding: 2rem;
+    width: 30rem;
+    text-align: center;
+
+}
+
+.verification span{
+    color: #333;
+    font-size: 2rem;
+}
+
+.verification p{
+    color: hsl(0, 2%, 52%);
+    margin-top: 1.5rem;
+}
+
+.verification input{
+    border: .1rem solid hsl(0, 5%, 75%);
+    padding: .6rem;
+    max-width: 70%;
+    margin: 1.5rem 0rem;
+    border-radius: .5rem;
+}
+
+.button-co{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.button-co button{
+    width: 100%;
+    color: #fff;
+    background: linear-gradient(65deg, hsl(39, 93%, 47%), hsl(300, 82%, 55%));
+    padding: .8rem;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+.button-co button:hover{
+    background: linear-gradient(65deg, hsl(39, 97%, 62%), hsl(300, 96%, 45%));
+
+}
