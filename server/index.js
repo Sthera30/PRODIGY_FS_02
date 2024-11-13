@@ -147,7 +147,7 @@ app.delete("/delete_food", remove_food)
 
 //connect to the database
 
-const PORT = process.env.PORT || 10000
+const PORT = process.env.PORT || 8005
 const mongo_url = process.env.MONGO_URL
 
 mongoose.connect(mongo_url).then(() => {
