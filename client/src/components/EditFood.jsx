@@ -21,7 +21,7 @@ function EditFood() {
 
         try {
 
-            const res = await axios.get(`http://localhost:8002/getFoodById?id=${id}`)
+            const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getFoodById?id=${id}`)
 
             if (res.data.success) {
                 setData(res.data.data.get_food)
@@ -50,7 +50,7 @@ function EditFood() {
 
         try {
 
-            const res = await axios.put(`http://localhost:8002/edit_food`, { id, name, description, price, category, weight, foodImage, specificationName })
+            const res = await axios.put(`https://mern-food-ordering-app-7.onrender.com/edit_food`, { id, name, description, price, category, weight, foodImage, specificationName })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -80,7 +80,7 @@ function EditFood() {
 
         try {
 
-            const { data } = await axios.post(`http://localhost:8002/upload`, formData)
+            const { data } = await axios.post(`https://mern-food-ordering-app-7.onrender.com/upload`, formData)
 
             setImage({
                 url: data.url,

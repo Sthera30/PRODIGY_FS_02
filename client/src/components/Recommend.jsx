@@ -22,7 +22,7 @@ function Recommend() {
 
         try {
 
-            const res = await axios.get(`http://localhost:8002/getTopRated`)
+            const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getTopRated`)
 
             if (res.data.success) {
                 setRecommend(res.data.data.food)
@@ -38,7 +38,7 @@ function Recommend() {
 
         try {
 
-            const res = await axios.delete(`http://localhost:8002/delete_food?id=${id}`)
+            const res = await axios.delete(`https://mern-food-ordering-app-7.onrender.com/delete_food?id=${id}`)
 
             if (res.data.success) {
                 toast.success(res.data.message)

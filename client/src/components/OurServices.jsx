@@ -16,7 +16,7 @@ function OurServices() {
 
         try {
 
-            const res = await axios.get('http://localhost:8002/getOurServices')
+            const res = await axios.get('https://mern-food-ordering-app-7.onrender.com/getOurServices')
 
             if (res.data.success) {
                 setServices(res.data.data.our_services)
@@ -36,7 +36,7 @@ function OurServices() {
 
         try {
 
-            const { data } = await axios.delete(`http://localhost:8002/removeOurServices?id=${id}`)
+            const { data } = await axios.delete(`https://mern-food-ordering-app-7.onrender.com/removeOurServices?id=${id}`)
 
             if (data.success) {
                 toast.success(data.message)

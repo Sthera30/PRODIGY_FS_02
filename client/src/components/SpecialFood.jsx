@@ -25,7 +25,7 @@ function SpecialFood() {
 
         try {
 
-            const res = await axios.get(`http://localhost:8002/getProductsFromDistinctCategory`)
+            const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getProductsFromDistinctCategory`)
 
             if (res.data.success) {
 
@@ -43,7 +43,7 @@ function SpecialFood() {
 
         try {
 
-            const res = await axios.delete(`http://localhost:8002/delete_food?id=${id}`)
+            const res = await axios.delete(`https://mern-food-ordering-app-7.onrender.com/delete_food?id=${id}`)
 
             if (res.data.success) {
                 toast.success(res.data.message)

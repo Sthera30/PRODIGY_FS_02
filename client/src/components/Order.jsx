@@ -38,7 +38,7 @@ function Order() {
 
             }))
 
-            const { data } = await axios.post(`http://localhost:8002/order`, {
+            const { data } = await axios.post(`https://mern-food-ordering-app-7.onrender.com/order`, {
                 user: {
                     _id: user?.user?._id,
                     name: user?.user?.name,

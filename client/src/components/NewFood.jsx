@@ -19,7 +19,7 @@ function NewFood() {
 
         try {
 
-            const res = await axios.get(`http://localhost:8002/getNewFood`)
+            const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getNewFood`)
 
             if (res.data.success) {
                 setNewFood(res.data.data.newFood)
@@ -36,7 +36,7 @@ function NewFood() {
 
         try {
 
-            const res = await axios.delete(`http://localhost:8002/delete_food?id=${id}`)
+            const res = await axios.delete(`https://mern-food-ordering-app-7.onrender.com/delete_food?id=${id}`)
 
             if (res.data.success) {
                 toast.success(res.data.message)

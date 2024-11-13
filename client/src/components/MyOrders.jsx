@@ -28,7 +28,7 @@ function MyOrders() {
 
     try {
 
-      const res = await axios.get(`http://localhost:8002/getAddressByOrder`, { params: { id } })
+      const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getAddressByOrder`, { params: { id } })
 
       if (res.data.success) {
         setAddressDetails(res.data.data.address)
@@ -55,7 +55,7 @@ function MyOrders() {
 
     try {
 
-      const res = await axios.get(`http://localhost:8002/filterStatus?status=${status}`)
+      const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/filterStatus?status=${status}`)
 
       if (res.data.success) {
         setOrders(res.data.data.paymentStatus)
@@ -77,7 +77,7 @@ function MyOrders() {
     try {
 
 
-      const res = await axios.get(`http://localhost:8002/filterPrice?priceRange=${price}`)
+      const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/filterPrice?priceRange=${price}`)
 
       if (res.data.success) {
         setOrders(res.data.data.priceFilter)
@@ -100,7 +100,7 @@ function MyOrders() {
 
     try {
 
-      const res = await axios.get(`http://localhost:8002/filterDate?startDate=${startDate}&endDate=${endDate}`)
+      const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/filterDate?startDate=${startDate}&endDate=${endDate}`)
 
       if (res.data.success) {
         setOrders(res.data.data.dateFilter)

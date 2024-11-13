@@ -17,7 +17,7 @@ function OurPromise() {
 
         try {
 
-            const res = await axios.get(`http://localhost:8002/getPromise`)
+            const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getPromise`)
 
             if (res.data.success) {
                 setPromises(res.data.data.our_promise);
@@ -39,7 +39,7 @@ function OurPromise() {
 
         try {
 
-            const { data } = await axios.delete(`http://localhost:8002/removePromise?id=${id}`)
+            const { data } = await axios.delete(`https://mern-food-ordering-app-7.onrender.com/removePromise?id=${id}`)
 
             if (data.success) {
                 toast.success(data.message)

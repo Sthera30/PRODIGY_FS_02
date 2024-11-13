@@ -18,7 +18,7 @@ function EditOurServices() {
 
     try {
 
-      const res = await axios.get(`http://localhost:8002/getOurServicesById?id=${id}`)
+      const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getOurServicesById?id=${id}`)
 
       if (res.data.success) {
 
@@ -46,7 +46,7 @@ function EditOurServices() {
 
     try {
 
-      const { data } = await axios.put(`http://localhost:8002/editOurServices`, { id, ourServiceHeading, ourServiceDescription, ourServiceImage })
+      const { data } = await axios.put(`https://mern-food-ordering-app-7.onrender.com/editOurServices`, { id, ourServiceHeading, ourServiceDescription, ourServiceImage })
 
       if (data.success) {
         toast.success(data.message)
@@ -80,7 +80,7 @@ function EditOurServices() {
 
     try {
 
-      const { data } = await axios.post(`http://localhost:8002/upload`, formData)
+      const { data } = await axios.post(`https://mern-food-ordering-app-7.onrender.com/upload`, formData)
 
       setImage({
 
