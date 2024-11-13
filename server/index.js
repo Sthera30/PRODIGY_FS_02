@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:5174'
+    origin: 'http://localhost:5173'
 }))
 
 app.use(cookieParser())
@@ -149,9 +149,12 @@ app.delete("/delete_food", remove_food)
 
 const PORT = process.env.PORT
 
-mongoose.connect("mongodb://localhost:27017/userDB").then(() => {
+mongoose.connect("mongodb+srv://tinisthera:Sict2018@tastehub-cluster.spq9v.mongodb.net/userDB?retryWrites=true&w=majority&appName=TasteHub-Cluster").then(() => {
     console.log("connected to the database!")
     app.listen(PORT, () => {
         console.log(`Server is listening at port ${PORT}!`);
     })
 })
+
+//mongodb://localhost:27017
+//mongodb+srv://tinisthera:Sict2018@tastehub-cluster.spq9v.mongodb.net/userDB?retryWrites=true&w=majority&appName=TasteHub-Cluster
