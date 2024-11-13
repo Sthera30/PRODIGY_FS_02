@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:5173'
+    origin: 'http://localhost:5175'
 }))
 
 app.use(cookieParser())
@@ -147,7 +147,7 @@ app.delete("/delete_food", remove_food)
 
 //connect to the database
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 10000
 const mongo_url = process.env.MONGO_URL
 
 mongoose.connect(mongo_url).then(() => {
