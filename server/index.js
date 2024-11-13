@@ -6,6 +6,7 @@ import ExpressFormidable from 'express-formidable'
 import { uploadImage } from './controller/imageUpload.js'
 import { protect } from './middleware/auth_middleware.js'
 import { authController, changePassword, compareOtp, createFood, createOrder, getAddressByOrderId, getAllFood, getAllOrders, getFoodById, getGenOtp, getNewFood, getOrderByUser, getProductsFromDistinctCategory, getProfile, getSpecificationByProductId, getTopRatedProducts, handlePayFastITN, loginUser, registerUser, verifyOtp, filterStatus, filterPrice, filterByDate, updateShippingStatus, getOrderById, add_our_promise, update_our_promise, remove_our_promise, get_our_promise, get_our_promise_by_id, add_our_services, get_our_services, edit_our_services, remove_our_services, get_our_services_by_id, add_about_us, edit_about_us, remove_about_us, get_about_us_by_id, add_mission, add_vision, add_values, get_about_us, get_mission, get_vision, get_values, get_our_core_values_by_id, get_our_mission_by_id, get_our_vision_by_id, edit_mission, edit_vision, edit_core_values, remove_mission, remove_vission, remove_values, get_food, search_food, get_food_by_id, edit_food, remove_food } from './controller/authController.js'
+import path from 'path'
 import dotenv from 'dotenv'
 dotenv.config
 
@@ -145,9 +146,17 @@ app.put("/edit_food", edit_food)
 
 app.delete("/delete_food", remove_food)
 
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, 'client/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+});
+
+
 //connect to the database
 
-const PORT = process.env.PORT || 8085
+const PORT = process.env.PORT || 8088
 const mongo_url = process.env.MONGO_URL
 
 mongoose.connect(mongo_url).then(() => {
