@@ -148,13 +148,17 @@ app.delete("/delete_food", remove_food)
 //connect to the database
 
 const PORT = process.env.PORT
+const mongo_url = process.env.MONGO_URL
 
-mongoose.connect("mongodb+srv://tinisthera:Sict2018@tastehub-cluster.spq9v.mongodb.net/userDB?retryWrites=true&w=majority&appName=TasteHub-Cluster").then(() => {
+mongoose.connect(mongo_url).then(() => {
     console.log("connected to the database!")
     app.listen(PORT, () => {
         console.log(`Server is listening at port ${PORT}!`);
     })
 })
 
+    .catch((err) => {
+        console.log("Error connecting to the database!", err);
+    })
 //mongodb://localhost:27017
 //mongodb+srv://tinisthera:Sict2018@tastehub-cluster.spq9v.mongodb.net/userDB?retryWrites=true&w=majority&appName=TasteHub-Cluster
