@@ -17,7 +17,6 @@ import { aboutUsModel } from '../model/aboutUs.js'
 import { missionModel } from '../model/mission.js'
 import { visionModel } from '../model/vision.js'
 import { valuesModel } from '../model/values.js'
-import { error, log } from 'console'
 
 export const registerUser = async (req, res) => {
 

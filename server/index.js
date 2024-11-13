@@ -6,6 +6,8 @@ import ExpressFormidable from 'express-formidable'
 import { uploadImage } from './controller/imageUpload.js'
 import { protect } from './middleware/auth_middleware.js'
 import { authController, changePassword, compareOtp, createFood, createOrder, getAddressByOrderId, getAllFood, getAllOrders, getFoodById, getGenOtp, getNewFood, getOrderByUser, getProductsFromDistinctCategory, getProfile, getSpecificationByProductId, getTopRatedProducts, handlePayFastITN, loginUser, registerUser, verifyOtp, filterStatus, filterPrice, filterByDate, updateShippingStatus, getOrderById, add_our_promise, update_our_promise, remove_our_promise, get_our_promise, get_our_promise_by_id, add_our_services, get_our_services, edit_our_services, remove_our_services, get_our_services_by_id, add_about_us, edit_about_us, remove_about_us, get_about_us_by_id, add_mission, add_vision, add_values, get_about_us, get_mission, get_vision, get_values, get_our_core_values_by_id, get_our_mission_by_id, get_our_vision_by_id, edit_mission, edit_vision, edit_core_values, remove_mission, remove_vission, remove_values, get_food, search_food, get_food_by_id, edit_food, remove_food } from './controller/authController.js'
+import dotenv from 'dotenv'
+dotenv.config
 
 const app = express()
 
@@ -145,9 +147,11 @@ app.delete("/delete_food", remove_food)
 
 //connect to the database
 
+const PORT = process.env.PORT
+
 mongoose.connect("mongodb://localhost:27017/userDB").then(() => {
     console.log("connected to the database!")
-    app.listen(8002, () => {
-        console.log("Server is listening at port 8002!");
+    app.listen(PORT, () => {
+        console.log(`Server is listening at port ${PORT}!`);
     })
 })

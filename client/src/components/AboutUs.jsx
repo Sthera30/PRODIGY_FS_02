@@ -20,14 +20,14 @@ const styles = {
         padding: '0 20px'
     },
     statsGrid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '32px',
-        '@media (max-width: 768px)': {
-            gridTemplateColumns: '1fr'
-        }
+     display: 'flex',
+     gap: '3rem',
+     flexWrap: 'wrap',
+     alignItems: 'center',
+     justifyContent: 'center'
     },
     statItem: {
+        flex: '1 1 20rem',
         textAlign: 'center',
         padding: '24px',
         backgroundColor: '#ffffff',
