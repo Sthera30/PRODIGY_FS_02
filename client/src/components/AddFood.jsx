@@ -23,7 +23,7 @@ function AddFood() {
         try {
 
 
-            const response = await axios.post('https://mern-food-ordering-app-8.onrender.com/upload', formData)
+            const response = await axios.post('https://mern-food-ordering-app-10.onrender.com/upload', formData)
 
             setUpload(false)
 
@@ -63,7 +63,7 @@ function AddFood() {
 
         try {
 
-            const { data } = await axios.post("https://mern-food-ordering-app-8.onrender.com/add", { name, description, price, category, weight, foodImage, specificationName },
+            const { data } = await axios.post("https://mern-food-ordering-app-10.onrender.com/add", { name, description, price, category, weight, foodImage, specificationName },
                 {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`

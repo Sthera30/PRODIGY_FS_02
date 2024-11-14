@@ -20,7 +20,7 @@ function ForgotPassword() {
         try {
 
 
-            const res = await axios.post(`https://mern-food-ordering-app-8.onrender.com/getOtp`, { email })
+            const res = await axios.post(`https://mern-food-ordering-app-10.onrender.com/getOtp`, { email })
 
 
             if (res.data.error) {

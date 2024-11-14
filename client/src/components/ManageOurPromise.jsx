@@ -19,7 +19,7 @@ function ManageOurPromise() {
 
         try {
 
-            const { data } = await axios.post(`https://mern-food-ordering-app-8.onrender.com/addPromise`, { title, description })
+            const { data } = await axios.post(`https://mern-food-ordering-app-10.onrender.com/addPromise`, { title, description })
 
             if (data.success) {
                 toast.success(data.message)

@@ -48,7 +48,7 @@ function MyOrder() {
 
         try {
 
-            const res = await axios.get(`https://mern-food-ordering-app-8.onrender.com/getOrderByUser`, {
+            const res = await axios.get(`https://mern-food-ordering-app-10.onrender.com/getOrderByUser`, {
                 params: { userId }
             })
 

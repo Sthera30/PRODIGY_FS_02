@@ -19,7 +19,7 @@ function EditPromise() {
 
         try {
 
-            const { data } = await axios.put(`https://mern-food-ordering-app-8.onrender.com/editPromise`, { id, title, description })
+            const { data } = await axios.put(`https://mern-food-ordering-app-10.onrender.com/editPromise`, { id, title, description })
 
             if (data.success) {
                 toast.success(data.message)
@@ -41,7 +41,7 @@ function EditPromise() {
 
         try {
 
-            const { data } = await axios.get(`https://mern-food-ordering-app-8.onrender.com/getPromiseById`, { params: {
+            const { data } = await axios.get(`https://mern-food-ordering-app-10.onrender.com/getPromiseById`, { params: {
                 id
             } })
 

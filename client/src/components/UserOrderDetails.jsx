@@ -13,7 +13,7 @@ function UserOrderDetails() {
 
         try {
 
-            const res = await axios.get(`https://mern-food-ordering-app-8.onrender.com/GetOrderById?id=${id}`)
+            const res = await axios.get(`https://mern-food-ordering-app-10.onrender.com/GetOrderById?id=${id}`)
 
             if (res.data.success) {
                 setOrderDetails(res.data.data.order)
@@ -39,7 +39,7 @@ function UserOrderDetails() {
 
         try {
 
-            const res = await axios.post(`https://mern-food-ordering-app-8.onrender.com/updateShippingStatus`, { id, shippingStatus })
+            const res = await axios.post(`https://mern-food-ordering-app-10.onrender.com/updateShippingStatus`, { id, shippingStatus })
 
             if (res.data.success) {
                 toast.success(res.data.message)

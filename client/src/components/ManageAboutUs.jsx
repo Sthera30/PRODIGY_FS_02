@@ -54,7 +54,7 @@ function ManageAboutUs() {
 
         try {
 
-            const res = await axios.post(`https://mern-food-ordering-app-8.onrender.com/add_about_us`, { aboutUsHeading, aboutUsDescription, aboutUsImage })
+            const res = await axios.post(`https://mern-food-ordering-app-10.onrender.com/add_about_us`, { aboutUsHeading, aboutUsDescription, aboutUsImage })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -83,7 +83,7 @@ function ManageAboutUs() {
 
         try {
 
-            const res = await axios.post(`https://mern-food-ordering-app-8.onrender.com/add_mission`, { missionHeading, missionDescription })
+            const res = await axios.post(`https://mern-food-ordering-app-10.onrender.com/add_mission`, { missionHeading, missionDescription })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -113,7 +113,7 @@ function ManageAboutUs() {
 
         try {
 
-            const res = await axios.post(`https://mern-food-ordering-app-8.onrender.com/add_vision`, { visionHeading, visionDescription })
+            const res = await axios.post(`https://mern-food-ordering-app-10.onrender.com/add_vision`, { visionHeading, visionDescription })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -142,7 +142,7 @@ function ManageAboutUs() {
 
         try {
 
-            const res = await axios.post(`https://mern-food-ordering-app-8.onrender.com/add_values`, { valuesHeading, valuesDescription })
+            const res = await axios.post(`https://mern-food-ordering-app-10.onrender.com/add_values`, { valuesHeading, valuesDescription })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -174,7 +174,7 @@ function ManageAboutUs() {
 
         try {
 
-            const { data } = await axios.post(`https://mern-food-ordering-app-8.onrender.com/upload`, formData)
+            const { data } = await axios.post(`https://mern-food-ordering-app-10.onrender.com/upload`, formData)
 
             setImage({
                 url: data.url,

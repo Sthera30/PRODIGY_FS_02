@@ -1,1 +1,32 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules
+node_modules
+
+# Build directories
+dist-ssr
+server/dist  # Ignore server dist only
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+.ntvs
+*.njsproj
+*.sln
+*.sw?
+
+# Ignore environment files
 .env
+
+# Ignore frontend build files only if necessary
+# !client/dist  # Uncomment if the `client/dist` folder needs to be committed

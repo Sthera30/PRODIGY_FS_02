@@ -24,7 +24,7 @@ function Profile() {
 
         try {
 
-            const { data } = await axios.post("https://mern-food-ordering-app-8.onrender.com/upload", formData)
+            const { data } = await axios.post("https://mern-food-ordering-app-10.onrender.com/upload", formData)
 
             setImage({
 
@@ -63,7 +63,7 @@ function Profile() {
 
         try {
 
-            const { data } = await axios.put('https://mern-food-ordering-app-8.onrender.com/updateProfile', { name, email, country, state, city, zipCode, profileImage, userId: user?.user?._id }, {
+            const { data } = await axios.put('https://mern-food-ordering-app-10.onrender.com/updateProfile', { name, email, country, state, city, zipCode, profileImage, userId: user?.user?._id }, {
 
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
