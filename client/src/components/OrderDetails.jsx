@@ -14,7 +14,7 @@ function OrderDetails() {
 
         try {
 
-            const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/GetOrderById?id=${id}`)
+            const res = await axios.get(`https://mern-food-ordering-app-8.onrender.com/GetOrderById?id=${id}`)
 
             if (res.data.success) {
 

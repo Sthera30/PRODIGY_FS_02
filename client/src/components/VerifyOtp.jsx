@@ -22,7 +22,7 @@ function VerifyOtp() {
 
         try {
 
-            const { data } = await axios.post("https://mern-food-ordering-app-7.onrender.com/verify", { otp, email })
+            const { data } = await axios.post("https://mern-food-ordering-app-8.onrender.com/verify", { otp, email })
 
             if (data.error) {
                 toast.error(data.error)

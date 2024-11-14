@@ -21,7 +21,7 @@ function ChangePassword() {
 
         try {
 
-            const { data } = await axios.post('https://mern-food-ordering-app-7.onrender.com/changePassword', { Is_verified, email, password, confirmPassword })
+            const { data } = await axios.post('https://mern-food-ordering-app-8.onrender.com/changePassword', { Is_verified, email, password, confirmPassword })
 
             if (data.success) {
                 toast.success(data.message)

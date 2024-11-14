@@ -65,7 +65,7 @@ function Menu() {
 
     try {
 
-      const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getAll?category=${value}`)
+      const res = await axios.get(`https://mern-food-ordering-app-8.onrender.com/getAll?category=${value}`)
 
       if (res.data.success) {
 

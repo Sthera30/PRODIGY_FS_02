@@ -19,7 +19,7 @@ function EditAboutUs() {
 
         try {
 
-            const { data } = await axios.get(`https://mern-food-ordering-app-7.onrender.com/get_about_us_by_id?id=${id}`)
+            const { data } = await axios.get(`https://mern-food-ordering-app-8.onrender.com/get_about_us_by_id?id=${id}`)
 
             if (data.success) {
                 setAboutUs(data.data.about_us)
@@ -40,7 +40,7 @@ function EditAboutUs() {
 
         try {
 
-            const { data } = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getCoreValuesById?id=${id}`)
+            const { data } = await axios.get(`https://mern-food-ordering-app-8.onrender.com/getCoreValuesById?id=${id}`)
 
             if (data.success) {
                 setCoreValues(data.data.core_values)
@@ -62,7 +62,7 @@ function EditAboutUs() {
 
         try {
 
-            const { data } = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getVisionById?id=${id}`)
+            const { data } = await axios.get(`https://mern-food-ordering-app-8.onrender.com/getVisionById?id=${id}`)
 
             if (data.success) {
                 setVision(data.data.vision)
@@ -84,7 +84,7 @@ function EditAboutUs() {
 
         try {
 
-            const { data } = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getMissionById?id=${id}`)
+            const { data } = await axios.get(`https://mern-food-ordering-app-8.onrender.com/getMissionById?id=${id}`)
 
             if (data.success) {
                 setMission(data.data.mission)
@@ -108,7 +108,7 @@ function EditAboutUs() {
 
         try {
 
-            const res = await axios.put(`https://mern-food-ordering-app-7.onrender.com/edit_about_us`, { id, aboutUsHeading, aboutUsDescription })
+            const res = await axios.put(`https://mern-food-ordering-app-8.onrender.com/edit_about_us`, { id, aboutUsHeading, aboutUsDescription })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -134,7 +134,7 @@ function EditAboutUs() {
 
         try {
 
-            const res = await axios.put(`https://mern-food-ordering-app-7.onrender.com/edit_mission`, { id, missionHeading, missionDescription })
+            const res = await axios.put(`https://mern-food-ordering-app-8.onrender.com/edit_mission`, { id, missionHeading, missionDescription })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -160,7 +160,7 @@ function EditAboutUs() {
 
         try {
 
-            const res = await axios.put(`https://mern-food-ordering-app-7.onrender.com/edit_vision`, { id, visionHeading, visionDescription })
+            const res = await axios.put(`https://mern-food-ordering-app-8.onrender.com/edit_vision`, { id, visionHeading, visionDescription })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -186,7 +186,7 @@ function EditAboutUs() {
 
         try {
 
-            const res = await axios.put(`https://mern-food-ordering-app-7.onrender.com/edit_values`, { id, valuesHeading, valuesDescription })
+            const res = await axios.put(`https://mern-food-ordering-app-8.onrender.com/edit_values`, { id, valuesHeading, valuesDescription })
 
             if (res.data.success) {
                 toast.success(res.data.message)

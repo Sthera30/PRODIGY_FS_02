@@ -21,7 +21,7 @@ function Details() {
     async function getFoodById() {
 
         try {
-            const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getFoodById/${id}`)
+            const res = await axios.get(`https://mern-food-ordering-app-8.onrender.com/getFoodById/${id}`)
 
             if (res.data.success) {
                 setDetails(res.data.data.food)
@@ -38,7 +38,7 @@ function Details() {
     async function getSpecificationByProductId() {
 
         try {
-            const res = await axios.get(`https://mern-food-ordering-app-7.onrender.com/getSpecificationByProductId`, {
+            const res = await axios.get(`https://mern-food-ordering-app-8.onrender.com/getSpecificationByProductId`, {
                 params: { foodId }
             })
 
@@ -60,7 +60,7 @@ function Details() {
 
         try {
 
-            const res = await axios.get("https://mern-food-ordering-app-7.onrender.com/getAllOrders")
+            const res = await axios.get("https://mern-food-ordering-app-8.onrender.com/getAllOrders")
 
             if (res.data.success) {
                 setDeliveryTimeFrame(res.data.orders.deliveryTimeframe)
