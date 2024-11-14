@@ -19,7 +19,7 @@ function Login() {
 
         try {
 
-            const { data } = await axios.post("https://mern-food-ordering-app-7.onrender.com/login", { email, password })
+            const { data } = await axios.post("https://mern-food-ordering-app-7.onrender.com/login", { email, password }, {withCredentials: true})
 
             if (data.error) {
                 toast.error(data.error)
