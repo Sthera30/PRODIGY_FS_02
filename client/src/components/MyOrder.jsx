@@ -3,7 +3,6 @@ import '../css/myOrder.css'
 import imgDessert from '../assets/dessert2.png'
 import axios from 'axios';
 import { useUserContext } from '../context/userContext.jsx'
-import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
 import '../css/myOrders.css'
 import { FaRegSmile, FaBox, FaShippingFast, FaTimes } from 'react-icons/fa'
 import { useCartContext } from '../context/cartContext.jsx';
@@ -120,7 +119,6 @@ function MyOrder() {
 
             <div className='header-container'>
 
-                <ScrollMenu>
 
                     <div className='order-sub'>
 
@@ -129,7 +127,6 @@ function MyOrder() {
 
                     </div>
 
-                </ScrollMenu>
 
                 <div className='order-innerss'>
 
