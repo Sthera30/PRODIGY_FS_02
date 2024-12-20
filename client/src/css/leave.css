@@ -1,0 +1,25 @@
+.leave-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -76rem;
+    padding: 2rem 2% !important;
+}
+
+.leaves-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    margin-left: 22rem;
+}
+
+
+.leave-right {
+    padding: 0rem 2%;
+}
+
+.leave-left input{
+    padding: .8rem;
+    width: 20rem;
+    border-radius: .5rem;
+}

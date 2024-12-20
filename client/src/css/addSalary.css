@@ -1,0 +1,78 @@
+.add-salary-container {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    width: 50%;
+    margin: -75rem auto !important;
+    padding: 1.2rem;
+}
+
+.salary-container- {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.salary-left- {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 15rem;
+}
+
+.salary-right- {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 15rem;
+}
+
+.salary-left- label {
+    padding: .8rem;
+}
+
+.salary-left- input {
+    width: 20rem;
+    border: .1rem solid hsl(0, 7%, 81%);
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.salary-right- input {
+    width: 20rem;
+    border: .1rem solid hsl(0, 7%, 81%);
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.salary-right- select{
+    width: 20rem;
+    border: .1rem solid hsl(0, 7%, 81%);
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.salary-left- select {
+    width: 20rem;
+    border: .1rem solid hsl(0, 7%, 81%);
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.salary-right- label {
+    padding: .8rem;
+}
+
+.salary-right- {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-salary-container form button{
+    color: #fff;
+    width: 100%;
+    background: hsl(120, 96%, 30%);
+    margin: 1rem 0rem;
+    padding: .8rem;
+    border-radius: 3rem;
+    cursor: pointer;
+}

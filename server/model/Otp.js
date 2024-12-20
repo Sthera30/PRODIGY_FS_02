@@ -3,39 +3,19 @@ import validator from "validator";
 
 
 const otpSchema = mongoose.Schema(
-
     {
-        email: {
-            type: String,
-            required: true,
-            unique: true,
-            validate: [validator.isEmail, "Please enter a valid email!"]
-        },
-
         otp: {
             type: String,
-        },
-
-        Is_verified: {
-
-            type: Boolean,
-            required: true,
-            default: false
-        },
-
-        expiration: {
-            type: Date,
             required: true
         },
 
-        createdAt: {
-            type: Date,
+        userEmail: {
+            type: String,
             required: true,
-            default: Date.now
+            validate: [validator.isEmail, "Invalid email address!"]
         }
 
     }
-
 )
 
 export const otpModel = mongoose.model('otp', otpSchema)

@@ -2,13 +2,12 @@ import React from 'react'
 import Login from '../components/Login.jsx'
 
 function LoginPage() {
-    return (
-        <div>
-
-            <Login />
-
-        </div>
-    )
+  return (
+    <div>
+        <Login />
+      
+    </div>
+  )
 }
 
 export default LoginPage

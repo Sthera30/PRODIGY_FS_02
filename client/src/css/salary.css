@@ -1,0 +1,41 @@
+.salary-heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -75rem;
+}
+
+.salary-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding: 2rem 6%;
+}
+
+.salary-left input{
+    padding: .8rem;
+    width: 20rem;
+
+}
+
+.salary-right a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.table-container table thead tr th{
+    padding: .5rem;
+}
+
+.table-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/* 073 772 8868 nolata */

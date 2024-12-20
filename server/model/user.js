@@ -1,82 +1,44 @@
-import mongoose from 'mongoose'
-import validator from 'validator'
+import mongoose from "mongoose";
+import validator from "validator";
 
 
-const userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true
+        },
 
-    name: {
-        type: String,
-        required: true
-    },
+        email: {
 
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-        validate: [validator.isEmail, "Please enter a valid email!"]
-    },
+            type: String,
+            required: true,
+            validate: [validator.isEmail, 'Invalid email address!']
+        },
 
-    password: {
-        type: String,
-        required: true
-    },
+        role: {
+            type: String,
+            required: true,
+            default: 'user'
+        },
 
-    confirmPassword: {
-        type: String,
-        required: true,
-        validate: {
-            validator: function (el) {
+        isVerified: {
+            type: Boolean,
+            required: true,
+            default: false
+        },
 
-                return (el) => el === this.password
+        password: {
+            type: String,
+            required: true
+        },
 
-            }
+        confirmPassword: {
+            type: String,
+            required: true
         }
-    },
+    }
 
-    isVerified: {
-        type: Boolean,
-        default: false,
-    },
+)
 
-    otp: {
-        type: String
-    },
-
-    role: {
-        type: String,
-        enum: ["user", "admin"],
-        default: "user"
-    },
-
-    profileImage: {
-        type: String,
-        required: false
-    },
-
-    country: {
-        type: String,
-        required: false
-    },
-
-    city: {
-        type: String,
-        required: false
-    },
-    state: {
-        type: String,
-        required: false
-    },
-
-    zipCode: {
-        type: Number,
-        required: false
-    },
-
-
-})
-
-const userModel = mongoose.model("users", userSchema)
-
-export default userModel
-
-//country, city, state, ZipCode, 
+export const userModel = mongoose.model('users', userSchema)

@@ -1,0 +1,49 @@
+.leave-details-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -76rem;
+    background: #fff;
+    width: 40%;
+    padding: 1.5rem;
+    margin: -76rem auto
+}
+
+.leave-details-heading h2 {
+    margin-bottom: 2rem;
+}
+
+.leave-content p {
+    font-weight: 800;
+}
+
+.leave-content p span {
+    font-weight: 300;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.status-container label {
+    font-weight: 800;
+}
+
+.status-container select {
+    border: .1rem solid hsl(0, 4%, 78%);
+    padding: .5rem;
+    width: 10rem;
+    border-radius: .5rem;
+}
+
+.leave-content button {
+
+    margin-top: 1rem;
+    color: #fff;
+    background: green;
+    padding: .8rem 1.2rem;
+    border-radius: 3rem;
+    cursor: pointer;
+}

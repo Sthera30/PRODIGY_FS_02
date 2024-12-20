@@ -1,0 +1,92 @@
+.employee-container{
+    margin: -70rem auto;
+    background: #fff;
+    width: 50rem;
+    padding: 2rem;
+}
+
+.employee-inner-container h2{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.employee-sub{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.employee-left{
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-right{
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-inner-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-left{
+    flex: 1 1 15rem;
+}
+
+.employee-left input{
+    border: .1rem solid hsl(0, 7%, 83%);
+    padding: .7rem;
+    width: 22rem;
+    border-radius: .5rem;
+    margin: 1rem 0rem;
+}
+
+.employee-left select{
+    border: .1rem solid hsl(0, 7%, 83%);
+    padding: .7rem;
+    width: 22rem;
+    border-radius: .5rem;
+    margin: 1rem 0rem;
+}
+
+
+
+.employee-right input{
+    border: .1rem solid hsl(0, 7%, 83%);
+    padding: .7rem;
+    width: 22rem;
+    border-radius: .5rem;
+    margin: 1rem 0rem;
+}
+
+.employee-right select{
+    border: .1rem solid hsl(0, 7%, 83%);
+    padding: .7rem;
+    width: 22rem;
+    border-radius: .5rem;
+    margin: 1rem 0rem;
+}
+
+
+.employee-right{
+    flex: 1 1 15rem;
+}
+
+.confirmPassword input{
+    border: .1rem solid hsl(0, 7%, 83%);
+    padding: .7rem;
+    width: 100%;
+    border-radius: .5rem;
+    margin: 1rem 0rem;
+}
+
+.btnAddEmployee{
+    color: #fff;
+    background: green;
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 3rem;
+    cursor: pointer;
+}

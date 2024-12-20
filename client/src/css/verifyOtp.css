@@ -1,53 +1,50 @@
-.verify-container{
+.verify-container {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
 }
 
-.verification{
+.verification {
     background: #fff;
-    padding: 2rem;
+    padding: 5rem 1.5rem;
     width: 30rem;
+    border-radius: 3rem;
     text-align: center;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.verification span{
-    color: #333;
+
+.verification {
+    text-align: center;
+}
+
+.verification span {
     font-size: 2rem;
 }
 
-.verification p{
-    color: hsl(0, 2%, 52%);
-    margin-top: 1.5rem;
-}
-
-.verification input{
-    border: .1rem solid hsl(0, 5%, 75%);
-    padding: .6rem;
-    max-width: 70%;
-    margin: 1.5rem 0rem;
-    border-radius: .5rem;
-}
-
-.button-co{
+.button-co {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
-.button-co button{
-    width: 100%;
+.button-co button {
+
     color: #fff;
-    background: linear-gradient(65deg, hsl(39, 93%, 47%), hsl(300, 82%, 55%));
-    padding: .8rem;
+    background: hsl(120, 96%, 33%);
+    padding: 1rem;
     border-radius: 3rem;
+    width: 25rem !important;
     cursor: pointer;
 }
 
-.button-co button:hover{
-    background: linear-gradient(65deg, hsl(39, 97%, 62%), hsl(300, 96%, 45%));
-
+.button-co input {
+    width: 10rem;
+    border: .1rem solid hsl(0, 12%, 87%);
+    padding: .8rem;
+    border-radius: .5rem;
+    margin-bottom: 1rem;
+    width: 100%;
 }

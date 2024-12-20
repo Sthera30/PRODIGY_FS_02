@@ -1,49 +1,44 @@
 import React, { useState } from 'react'
-import '../css/verifyOtp.css'
 import { useUserContext } from '../context/userContext'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import '../css/verifyOtp.css'
 
 
 function VerifyOtp() {
 
-    const { user } = useUserContext()
+    const [ data, setData ] = useState({ otp: ''})
 
-    const [data, setData] = useState({ otp: '', email: `${user?.user?.email}` })
 
     const navigate = useNavigate()
 
-    async function handle_submit(e) {
+    async function handle_compare(e) {
 
         e.preventDefault()
 
-        const {otp, email} = data
+        const email = localStorage.getItem("email")
+
+        const { otp } = data
 
         try {
 
-            const { data } = await axios.post("https://mern-food-ordering-app-10.onrender.com/verify", { otp, email })
+            const { data } = await axios.post(`http://localhost:8082/verifyOtp`, { otp, email })
 
-            if (data.error) {
-                toast.error(data.error)
+            if (data.success) {
+                toast.success(data.message)
+                navigate("/change-password")
             }
 
             else {
-                toast.success("otp verified!")
-                navigate("/")
-                location.reload()
-
+                toast.error(data.error)
             }
-
-
 
         } catch (error) {
             console.log(error);
-
         }
 
     }
-
 
     return (
         <div className='verify-container'>
@@ -51,14 +46,13 @@ function VerifyOtp() {
 
             <div className='verification'>
 
-                <span>Email Verification</span>
+                <span>OTP Verification</span>
                 <p>We have sent a code to your email address</p>
 
-                <form onSubmit={handle_submit}>
+                <form onSubmit={handle_compare}>
 
                     <div className='button-co'>
-                        <input type="number" placeholder='Enter Your Code' onChange={(e) => setData({ ...data, otp: e.target.value })} />
-                        <input type='hidden' placeholder='Enter your email' value={user?.user?.email} />
+                        <input type="number" placeholder='Enter Your Code' onChange={(e) => setData({...data, otp: e.target.value})} />
                         <button type='submit'>Verify Account</button>
                     </div>
 

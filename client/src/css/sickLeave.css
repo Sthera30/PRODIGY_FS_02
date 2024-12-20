@@ -1,0 +1,71 @@
+.sickLeave-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: -76rem;
+}
+
+.search-filter-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20rem;
+    padding: 2rem 4%;
+}
+
+.button-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.search-filter-left{
+    flex: 1 1 15rem;
+}
+
+.search-filter-left input{
+    border: .1rem solid hsl(0, 5%, 75%);
+    width: 60%;
+    padding: .6rem;
+    border-radius: .5rem;
+}
+
+.search-filter-right{
+    flex: 1 1 15rem;
+}
+
+.button-container button{
+    color: #fff;
+    background: hsl(197, 77%, 41%);
+    padding: .8rem 1.5rem;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+
+.sick-leave-container{
+    max-width: 55rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 23.2rem;
+}
+
+.sick-leave-container table  thead tr th{
+    padding: .8rem;
+}
+
+.sick-leave-container table tr td{
+    padding: .8rem;
+}
+
+.btnView{
+    color: blue !important;
+    border-radius: 3rem;
+    padding: .5rem 2rem !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sick-leave-container{
+    margin: 0 auto !important;
+}

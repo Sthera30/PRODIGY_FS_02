@@ -1,84 +1,64 @@
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
-import Layout from "./layouts/Layout.jsx";
-import HomePage from "./pages/HomePage.jsx";
-import LoginPage from "./pages/LoginPage.jsx";
-import RegisterPage from "./pages/RegisterPage.jsx";
-import Protected from "./pages/Protected.jsx";
-import VerifyOtpPage from "./pages/VerifyOtpPage.jsx";
-import AddPage from "./pages/AddPage.jsx";
-import MenuPage from "./pages/MenuPage.jsx";
-import DetailsPage from "./pages/DetailsPage.jsx";
-import ProfilePage from "./pages/ProfilePage.jsx";
-import ViewCartPage from "./pages/ViewCartPage.jsx";
-import SuccessPage from "./pages/SuccessPage.jsx";
-import CancelPage from "./pages/CancelPage.jsx";
-import OrderPage from "./pages/OrderPage.jsx";
-import MyOrder from "./components/MyOrder.jsx";
-import MyOrders from "./components/MyOrders.jsx";
-import ContactPage from "./pages/ContactPage.jsx";
-import ConditionsPage from "./pages/ConditionsPage.jsx";
-import CookiePolicyPage from "./pages/CookiePolicyPage.jsx";
-import ForgotPasswordPage from "./pages/ForgotPasswordPage.jsx";
-import VerifyOtpEmailPage from "./pages/VerifyOtpEmailPage.jsx";
-import ChangePasswordPage from "./pages/ChangePasswordPage.jsx";
-import TrackingOrderPage from "./pages/TrackingOrderPage.jsx";
-import OurPromisePage from "./pages/OurPromisePage.jsx";
-import ManageOurPromisePage from "./pages/ManageOurPromisePage.jsx";
-import EditPromisePage from "./pages/EditPromisePage.jsx";
-import OrderDetailsPage from "./pages/OrderDetailsPage.jsx";
-import UserOrderDetailsPage from './pages/UserOrderDetailsPage.jsx'
-import OurServicesPage from "./pages/OurServicesPage.jsx";
-import ManageOurServicesPage from "./pages/ManageOurServicesPage.jsx";
-import EditOurServicesPage from './pages/EditOurServicesPage.jsx'
-import AbouUsPage from './pages/AboutUsPage.jsx'
-import ManageAboutUsPage from './pages/ManageAboutUsPage.jsx'
-import EditAboutUsPage from "./pages/EditAboutUsPage.jsx";
-import ExploreMorePage from './pages/ExploreMorePage.jsx'
-import CheckoutGuardPage from "./pages/CheckoutGuardPage.jsx";
-import EditFoodPage from './pages/EditFoodPage.jsx'
+import React from 'react'
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import Layouts from './layouts/Layouts.jsx'
+import RegisterPage from './pages/RegisterPage.jsx'
+import LoginPage from './pages/LoginPage.jsx'
+import HomePage from './pages/HomePage.jsx'
+import Protected from './pages/Protected.jsx'
+import OtpPage from './pages/OtpPage.jsx'
+import VerifyEmailPage from './pages/VerifyEmailPage.jsx'
+import ChangePasswordPage from './pages/ChangePasswordPage.jsx'
+import ManageEmployeesPage from './pages/ManageEmployeesPage.jsx'
+import EmployeePage from './pages/EmployeePage.jsx'
+import EmployeeDetailsPage from './pages/EmployeeDetailsPage.jsx'
+import EditEmployeesPage from './pages/EditEmployeesPage.jsx'
+import ManageDepartmentPages from './pages/ManageDepartmentPages.jsx'
+import DepartmentPages from './pages/DepartmentPages.jsx'
+import EditDepartmentPages from './pages/EditDepartmentPages.jsx'
+import SickLeavePages from './pages/SickLeavePages.jsx'
+import AddSalaryPages from './pages/AddSalaryPages.jsx'
+import SalaryPages from './pages/SalaryPages.jsx'
+import EditSalaryPages from './pages/EditSalaryPages.jsx'
+import MyProfilePages from './pages/MyProfilePages.jsx'
+import LeavePages from './pages/LeavePages.jsx'
+import EmployeeSickLeavePages from './pages/EmployeeSickLeavePages.jsx'
+import EmpSalaryPages from './pages/EmpSalaryPages.jsx'
+import LeaveDetailsPages from './pages/LeaveDetailsPages.jsx'
+import HomePages from './pages/HomePages.jsx'
+import DashboardPage from './pages/DashboardPage.jsx'
 
 function App() {
 
+
   const router = createBrowserRouter(
+
 
     createRoutesFromElements(
 
-      <Route path={"/"} element={<Layout />}>
+      <Route path={"/"} element={<Layouts />}>
 
-        <Route index element={<Protected><HomePage /></Protected>} />
-        <Route path={'/login'} element={<LoginPage />} />
-        <Route path={'/register'} element={<RegisterPage />} />
-        <Route path={"/verify-otp"} element={<Protected><VerifyOtpPage /></Protected>} />
-        <Route path={"/add-food"} element={<Protected><AddPage /></Protected>} />
-        <Route path={"/menu"} element={<Protected><MenuPage /></Protected>} />
-        <Route path={"/details/:id"} element={<DetailsPage />} />
-        <Route path={"/profile"} element={<Protected><ProfilePage /></Protected>} />
-        <Route path={"/view-cart"} element={<ViewCartPage />} />
-        <Route path={"/success"} element={<Protected><SuccessPage /></Protected>} />
-        <Route path={"/cancel"} element={<Protected><CancelPage /></Protected>} />
-        <Route path={"/checkout"} element={<Protected><CheckoutGuardPage /></Protected>} />
-        <Route path={"/my-order"} element={<Protected><MyOrder /></Protected>} />
-        <Route path={"/my-orders"} element={<Protected><MyOrders /></Protected>} />
-        <Route path={"/contact"} element={<ContactPage />} />
-        <Route path={"/conditions"} element={<ConditionsPage />} />
-        <Route path={"/policy"} element={<CookiePolicyPage />} />
-        <Route path={"/reset-password"} element={<ForgotPasswordPage />} />
-        <Route path={"/verify-code"} element={<VerifyOtpEmailPage />} />
+        <Route path={"/login"} element={<LoginPage />} />
+        <Route path={"/register"} element={<RegisterPage />} />
+        <Route path={"/verify-otp"} element={<OtpPage />} />
         <Route path={"/change-password"} element={<ChangePasswordPage />} />
-        <Route path={"/tracking-order/:id"} element={<TrackingOrderPage />} />
-        <Route path={"/our-promise"} element={<OurPromisePage />} />
-        <Route path={"/manage-promise"} element={<ManageOurPromisePage />} />
-        <Route path={"/edit-promise/:id"} element={<EditPromisePage />} />
-        <Route path={"/order-details/:id"} element={<OrderDetailsPage />} />
-        <Route path={"/manage-orders/:id"} element={<UserOrderDetailsPage />} />
-        <Route path={"/our-services"} element={<OurServicesPage />} />
-        <Route path={"/manage-our-services"} element={<ManageOurServicesPage />} />
-        <Route path={"/edit-our-promises/:id"} element={<EditOurServicesPage />} />
-        <Route path={"/about-us"} element={< AbouUsPage/>} />
-        <Route path={"/manage-about-us"} element={<ManageAboutUsPage />} />
-        <Route path={"/edit_about_us/:id"} element={<EditAboutUsPage />} />
-        <Route path={"our-food"} element={<ExploreMorePage />} />
-        <Route path={"/edit-food/:id"} element={<EditFoodPage />} />
+        <Route path={"/verify-email"} element={<VerifyEmailPage />} />
+        <Route path={"/manage-employees"} element={<ManageEmployeesPage />} />
+        <Route path={"/employee"} element={<EmployeePage />} />
+        <Route path={"/manage-employees/employee-details/:id"} element={<EmployeeDetailsPage />} />
+        <Route path={"/edit-employee/:id"} element={<EditEmployeesPage />} />
+        <Route path={"/manage-departments"} element={<ManageDepartmentPages />} />
+        <Route path={"/department"} element={<DepartmentPages />} />
+        <Route path={"/edit-department/:id"} element={<EditDepartmentPages />} />
+        <Route path={"/manage-leave"} element = {<SickLeavePages />} />
+        <Route path={"/add-salary"} element = {<AddSalaryPages />} />
+        <Route path={"/manage-salary"} element = {<SalaryPages />} />
+        <Route path={"/edit-salary/:id"} element = {<EditSalaryPages />} />
+        <Route path={"/my-profile/:id"} element={<MyProfilePages />} />
+        <Route path={"/my-leave/:id"} element={<LeavePages />} />
+        <Route path={"/add-leave"} element={<EmployeeSickLeavePages />} />
+        <Route path={"/emp-salary/:id"} element={<EmpSalaryPages />} />
+        <Route path={"/leave-details/:id"} element={<LeaveDetailsPages />} />
+        <Route path={"/my-dashboard"} element={<DashboardPage />} />
 
       </Route>
 
@@ -87,14 +67,10 @@ function App() {
   )
 
   return (
-    <>
 
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
 
-    </>
   )
-
-
 }
 
-export default App;
+export default App

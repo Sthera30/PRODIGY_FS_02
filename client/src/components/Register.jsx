@@ -7,64 +7,31 @@ import { toast } from 'react-hot-toast'
 
 function Register() {
 
-    const [image, setImage] = useState({})
-    const [uploading, setUploading] = useState(false)
-    const [data, setData] = useState({ name: '', email: '', password: '', confirmPassword: '', profileImage: '' })
+
+    const [data, setData] = useState({ name: '', email: '', password: '', confirmPassword: '' })
 
     const navigate = useNavigate()
 
-    async function handle_change(e) {
-
-        const file = e.target.files[0]
-        const formData = new FormData()
-        formData.append("image", file)
-
-        setUploading(true)
-
-        try {
-
-            const { data } = await axios.post("https://mern-food-ordering-app-10.onrender.com/upload", formData)
-
-            setUploading(false)
-
-            setImage({
-                url: data.url,
-                public_id: data.public_id
-            })
-
-            setData(prevData => ({ ...prevData, profileImage: data.url }))
-
-        } catch (error) {
-            console.log(error);
-
-        }
-
-    }
-
-    async function handle_submit(e) {
+    async function handle_registration(e) {
 
         e.preventDefault()
 
-        const updatedData = {
-            ...data, profileImage: image?.url
-        }
-
-
-        const { name, email, password, confirmPassword, profileImage } = data
+        const { name, email, password, confirmPassword } = data
 
         try {
 
-            const { data } = await axios.post("https://mern-food-ordering-app-10.onrender.com/register", { name, email, password, confirmPassword, profileImage })
+            const { data } = await axios.post(`http://localhost:8082/register`, { name, email, password, confirmPassword }, {withCredentials: true})
 
-            if (data.error) {
-                toast.error(data.error)
+            if (data.success) {
+                toast.success(data.message)
+                setData({name:'', email: '', password: '', confirmPassword: ''})
+                localStorage.setItem('email', email)
+                navigate("/login")
             }
 
             else {
-                setData({})
-                toast.success("Successfully registered!")
-                localStorage.setItem("token", data.data.token)
-                navigate("/login")
+                toast.error(data.error)
+                localStorage.clear()
             }
 
         } catch (error) {
@@ -80,20 +47,11 @@ function Register() {
 
             <div className='register-co'>
 
-                <div className='profile-co'>
 
-                    <label htmlFor="image-upload">
 
-                        <img src={image?.url || imgAvator} alt="" style={{ width: '5rem', height: '5rem', objectFit: 'contain', cursor: 'pointer', borderRadius: '50%' }} />
+                <form onSubmit={handle_registration}>
 
-                    </label>
-
-                    <span>Your Profile</span>
-                    <input type="file" accept='image/*' id='image-upload' style={{ display: 'none' }} onChange={handle_change} />
-
-                </div>
-
-                <form onSubmit={handle_submit}>
+                    <h2>Registration Page</h2>
 
                     <label>Name</label>
                     <input type="text" name='name' placeholder='Enter your name' onChange={(e) => setData({ ...data, name: e.target.value })} />
@@ -104,8 +62,10 @@ function Register() {
                     <div className='passContainer'>
 
                         <div className='pass'>
+
                             <label>Password</label>
                             <input type="password" placeholder='Enter your password' onChange={(e) => setData({ ...data, password: e.target.value })} />
+
                         </div>
 
                         <div className='confirm'>
@@ -120,7 +80,7 @@ function Register() {
                     <button type='submit' className='btnRegister'>Register</button>
 
 
-                    <NavLink to={"/login"} className="ancLogin" style={{color:'#333'}}>Already have an account?&nbsp;<span className='sign-in'>SIGN IN</span></NavLink>
+                    <NavLink to={"/login"} className="ancLogin" style={{ color: '#333' }}>Already have an account?&nbsp;<span className='sign-in'>SIGN IN</span></NavLink>
 
 
                 </form>

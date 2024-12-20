@@ -7,30 +7,33 @@ import { useNavigate } from 'react-router-dom'
 
 function ChangePassword() {
 
+    const [data, setData] = useState({ currentPassword: '', newPassword: '' })
 
-    const [data, setData] = useState({ Is_verified: localStorage.getItem("Is_verified"), email: localStorage.getItem("email"), password: '', confirmPassword: '' })
 
     const navigate = useNavigate()
 
-    async function handle_updatePassword(e) {
+    async function handle_change_password(e) {
 
         e.preventDefault()
 
-        const { Is_verified, email, password, confirmPassword } = data
+        const email = localStorage.getItem("email");
 
+        const { currentPassword, newPassword } = data
 
         try {
 
-            const { data } = await axios.post('https://mern-food-ordering-app-10.onrender.com/changePassword', { Is_verified, email, password, confirmPassword })
+            const { data } = await axios.post(`http://localhost:8082/changePassword`, { currentPassword, newPassword, email })
 
             if (data.success) {
                 toast.success(data.message)
+                setData({ currentPassword: '', newPassword: '' })
                 navigate("/login")
             }
 
             else {
                 toast.error(data.error)
             }
+
 
         } catch (error) {
             console.log(error);
@@ -45,17 +48,17 @@ function ChangePassword() {
 
             <div className='change-password-container'>
 
-                <form onSubmit={handle_updatePassword}>
+                <form onSubmit={handle_change_password}>
 
                     <div className='chage-password-inner'>
 
-                        <h2 style={{textAlign: 'center', marginBottom:'.5rem'}}>Change Password</h2>
-                        <p style={{textAlign: 'center', color: '#333', fontWeight: '300', marginBottom: '2.5rem'}}>Please enter your current and new password</p>
+                        <h2 style={{ textAlign: 'center', marginBottom: '.5rem' }}>Reset Password</h2>
+                        <p style={{ textAlign: 'center', color: '#333', fontWeight: '300', marginBottom: '2.5rem' }}>Please enter your current and new password</p>
 
                         <span>Current password</span>
-                        <input type="password" name='password' style={{width: '100%'}} placeholder='Enter current password' onChange={(e) => setData({ ...data, password: e.target.value })} />
+                        <input type="password" name='password' style={{ width: '100%' }} placeholder='Enter current password' onChange={(e) => setData({...data, currentPassword: e.target.value})} />
                         <span>New password</span>
-                        <input type="password" name='password'  style={{width: '100%'}} placeholder='Enter new password' onChange={(e) => setData({ ...data, confirmPassword: e.target.value })} />
+                        <input type="password" name='password' style={{ width: '100%' }} placeholder='Enter new password' onChange={(e) => setData({...data, newPassword: e.target.value})} />
                         <button type='submit'>Update password</button>
 
                     </div>

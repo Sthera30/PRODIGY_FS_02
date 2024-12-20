@@ -1,0 +1,41 @@
+.employeeSickLeave-container{
+    display: flex;
+    margin: -76rem auto;
+    background: #fff;
+    width: 35rem;
+    padding: 1.5rem;
+}
+
+.employeeSickLeave-inner h2{
+    font-weight: 300;
+}
+.employeeSickLeave-inner form{
+    display: flex;
+    flex-direction: column;
+}
+
+.employeeSickLeave-inner form select{
+    border: .1rem solid hsl(0, 6%, 84%);
+    padding: .6rem;
+    width: 30rem !important;
+}
+
+
+.employeeSickLeave-inner form input{
+    border: .1rem solid hsl(0, 6%, 84%);
+    padding: .6rem;
+    width: 30rem;
+}
+
+
+.employeeSickLeave-inner label{
+    padding: 1.2rem;
+}
+
+.employeeSickLeave-inner form button{
+    margin: 1rem 0rem;
+    color: #fff;
+    padding: 1rem 0rem;
+    border-radius: 3rem;
+    background: blue;
+}

@@ -1,69 +1,59 @@
-import { useUserContext } from "../context/userContext.jsx";
+import React, { Children, useEffect, useState } from 'react'
+import { useUserContext } from '../context/userContext';
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { useEffect } from "react";
 
-function Protected({ children }) {
-
+function Protected() {
 
     const { user, setUser } = useUserContext()
+    const [isLoading, setIsLoading] = useState(true)
     const navigate = useNavigate()
 
-    const getUser = async () => {
+    async function handle_get_user() {
 
         try {
-
-            const res = await axios.post("https://mern-food-ordering-app-10.onrender.com/getUser", {
-                token: localStorage.getItem("token")
-            },
-
-                {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem("token")}`
-                    }
-                }
-
-            )
+                                                                             //Send cookies
+            const res = await axios.get(`http://localhost:8082/getUser`, { withCredentials: true })
 
             if (res.data.success) {
-                setUser(res.data.data)
-                
+                setUser(res.data.data.user)
             }
 
             else {
-                localStorage.clear()
-                return navigate("/login")
+                setUser(null)
             }
 
-
-
         } catch (error) {
+            setUser(null)
             console.log(error);
-            localStorage.clear()
-
+        } finally {
+            setIsLoading(false)
         }
 
     }
+
 
     useEffect(() => {
 
-        if (!user) {
-            getUser()
-        }
+        handle_get_user()
 
-    }, [user])
+    }, [])
 
-
-    if (localStorage.getItem("token")) {
-        return children
+    if (isLoading) {
+        return <div>Loading...</div>
     }
 
-    else {
-        localStorage.clear()
-        return navigate("/login")
+    if (!user) {
+        navigate("/login", { replace: true })
+        return null
     }
 
+    return (
+        <div>
 
+
+        </div>
+    )
 }
 
 export default Protected

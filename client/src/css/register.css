@@ -1,28 +1,29 @@
-.register-container{
+.register-container {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    margin-top: -79rem
 }
 
-.profile-co{
+.profile-co {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.register-co{
+.register-co {
     background: #fff;
     padding: 1.5rem;
     width: 30rem;
 }
 
-.register-co form label{
+.register-co form label {
     color: #333;
 }
 
 
-.register-co form input{
+.register-co form input {
     width: 100% !important;
     border: .1rem solid hsl(0, 6%, 90%) !important;
     padding: .8rem;
@@ -30,14 +31,15 @@
     margin: .5rem 0rem;
 }
 
-.passContainer{
+.passContainer {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
-.btnRegister{
+.btnRegister {
     color: #fff;
-    background: linear-gradient(65deg, hsl(39, 93%, 47%), hsl(300, 82%, 55%));
+    background: green;
     padding: 1rem 1.5rem;
     width: 100%;
     border-radius: 3rem;
@@ -46,18 +48,24 @@
 }
 
 
-.btnRegister:hover{
-    background: linear-gradient(65deg, hsl(39, 97%, 62%), hsl(300, 96%, 45%));
+.btnRegister:hover {
+    background: lime;
 }
 
-.sign-in{
-    color: orange !important;
+.sign-in {
+    color: green !important;
 }
 
-.ancLogin{
+.ancLogin {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: hsl(197, 98%, 36%);
+}
+
+form h2 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.7rem;
 }

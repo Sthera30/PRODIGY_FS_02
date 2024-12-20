@@ -1,0 +1,39 @@
+.department-containers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -65rem auto;
+    background: #fff;
+    width: 60%;
+    padding: 1.5rem;
+}
+
+.department-inner-containers h2{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.department-lefts{
+    display: flex;
+    flex-direction: column;
+}
+
+.department-lefts label{
+    margin-right: 1rem;
+}
+
+.department-lefts input{
+    border: .1rem solid hsl(0, 7%, 79%);
+    padding: .5rem;
+    border-radius: .5rem;
+    width: 20rem;
+    margin-top: 1.5rem;
+}
+
+.department-containers form button{
+    color: #fff;
+    background: green;
+    margin-top: 2rem;
+    padding: .8rem;
+    border-radius: 3rem;
+}
