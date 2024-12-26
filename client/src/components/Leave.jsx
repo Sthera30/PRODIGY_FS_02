@@ -12,7 +12,7 @@ function Leave() {
     async function handle_fetch() {
 
         try {
-            const res = await axios.get("http://localhost:8082/getAllLeaves")
+            const res = await axios.get("https://prodigy-fs-02-ems-backend-app.onrender.com/getAllLeaves")
 
             if (res.data.success) {
                 setLeaves(res.data.data.leave)

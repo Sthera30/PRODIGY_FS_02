@@ -24,7 +24,7 @@ function AddSalary() {
 
         try {
 
-            const res = await axios.post('http://localhost:8082/addSalary', { departmentId, employeeId, salary, allowance, deduction, paymentDate })
+            const res = await axios.post('https://prodigy-fs-02-ems-backend-app.onrender.com/addSalary', { departmentId, employeeId, salary, allowance, deduction, paymentDate })
 
             if (res.data.success) {
                 toast.success(res.data.message)
@@ -47,7 +47,7 @@ function AddSalary() {
 
         try {
 
-            const res = await axios.get('http://localhost:8082/getAllDepartment')
+            const res = await axios.get('https://prodigy-fs-02-ems-backend-app.onrender.com/getAllDepartment')
 
             if (res.data.success) {
                 setDepartment(res.data.data.department)
@@ -67,7 +67,7 @@ function AddSalary() {
 
         try {
 
-            const res = await axios.get('http://localhost:8082/getAllEmployee')
+            const res = await axios.get('https://prodigy-fs-02-ems-backend-app.onrender.com/getAllEmployee')
 
             if (res.data.success) {
                 setEmployee(res.data.data.employee)

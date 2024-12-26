@@ -12,7 +12,7 @@ export function UserContextProvider({ children }) {
 
         try {
 
-            const res = await axios.get('http://localhost:8082/getUser', { withCredentials: true })
+            const res = await axios.get('https://prodigy-fs-02-ems-backend-app.onrender.com/getUser', { withCredentials: true })
 
             if (res.data.success) {
                 setUser(res.data.data.user)

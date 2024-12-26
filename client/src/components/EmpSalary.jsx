@@ -13,7 +13,7 @@ function EmpSalary() {
 
         try {
 
-            const res = await axios.get('http://localhost:8082/getAllSalaries')
+            const res = await axios.get('https://prodigy-fs-02-ems-backend-app.onrender.com/getAllSalaries')
 
             if (res.data.success) {
                 setSalaries(res.data.data.salaries)

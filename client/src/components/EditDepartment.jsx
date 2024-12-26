@@ -17,7 +17,7 @@ function EditDepartment() {
 
     try {
 
-      const res = await axios.get(`http://localhost:8082/getDepartmentById?id=${id}`)
+      const res = await axios.get(`https://prodigy-fs-02-ems-backend-app.onrender.com/getDepartmentById?id=${id}`)
 
       if (res.data.success) {
         setData(res.data.data.department)
@@ -44,7 +44,7 @@ function EditDepartment() {
     try {
 
 
-      const res = await axios.put("http://localhost:8082/updateDepartment", { id, departmentName })
+      const res = await axios.put("https://prodigy-fs-02-ems-backend-app.onrender.com/updateDepartment", { id, departmentName })
 
       if (res.data.success) {
         toast.success(res.data.message)

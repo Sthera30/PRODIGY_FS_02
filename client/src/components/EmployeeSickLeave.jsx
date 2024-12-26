@@ -23,7 +23,7 @@ function EmployeeSickLeave() {
 
         try {
 
-            const res = await axios.post(`http://localhost:8082/addLeave`, {leaveType, employeeId,  fromDate, ToDate, description})
+            const res = await axios.post(`https://prodigy-fs-02-ems-backend-app.onrender.com/addLeave`, {leaveType, employeeId,  fromDate, ToDate, description})
 
             if(res.data.success){
                 toast.success(res.data.message)

@@ -19,7 +19,7 @@ function Department() {
         try {
 
 
-            const res = await axios.post(`http://localhost:8082/createDepartment`, {departmentName})
+            const res = await axios.post(`https://prodigy-fs-02-ems-backend-app.onrender.com/createDepartment`, {departmentName})
 
             if(res.data.success){
                 toast.success(res.data.message)

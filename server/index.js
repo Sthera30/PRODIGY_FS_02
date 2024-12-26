@@ -24,7 +24,7 @@ app.use(cookieParser())
 //cors
 app.use(cors({
 
-    origin: 'http://localhost:5173',
+    origin: 'https://prodigy-fs-02-ems-frontend-app.onrender.com',
     credentials: true
 
 }))

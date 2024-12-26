@@ -18,7 +18,7 @@ function VerifyEmail() {
 
         try {
 
-            const {data} = await axios.post(`http://localhost:8082/verifyEmail`, {email})
+            const {data} = await axios.post(`https://prodigy-fs-02-ems-backend-app.onrender.com/verifyEmail`, {email})
 
             if(data.success){
                 localStorage.setItem("email", email)

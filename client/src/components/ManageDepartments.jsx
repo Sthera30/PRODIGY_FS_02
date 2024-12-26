@@ -18,7 +18,7 @@ function ManageDepartments() {
 
         try {
 
-            const res = await axios.get(`http://localhost:8082/getAllDepartment`)
+            const res = await axios.get(`https://prodigy-fs-02-ems-backend-app.onrender.com/getAllDepartment`)
 
             if (res.data.success) {
                 setDepartments(res.data.data.department)
@@ -40,7 +40,7 @@ function ManageDepartments() {
 
         try {
 
-            const res = await axios.delete(`http://localhost:8082/removeDepartment?id=${id}`)
+            const res = await axios.delete(`https://prodigy-fs-02-ems-backend-app.onrender.com/removeDepartment?id=${id}`)
 
             if (res.data.success) {
                 toast.success(res.data.message)
