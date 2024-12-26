@@ -69,12 +69,13 @@ app.delete("/removeLeave", remove_leaves)
 
 
 const MONGO_URL = process.env.MONGO_URL
+const PORT = process.env.PORT || 8082
 
 mongoose.connect(MONGO_URL).then(() => {
 
     console.log("connected to the database...");
 
-    app.listen(8082, () => {
+    app.listen(PORT, () => {
 
         console.log('server is listening at port 8082....');
     })
