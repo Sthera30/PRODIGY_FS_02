@@ -93,7 +93,7 @@ function Navbar() {
                         <button onClick={handle_logout} className='btnLogin'>Logout</button>
                     ) : (
 
-                        <NavLink to={"/login"} className='btnLogin'>Login</NavLink>
+                        <NavLink style={{textDecoration: 'none'}} to={"/login"} className='btnLogin'>Login</NavLink>
 
 
                     )}

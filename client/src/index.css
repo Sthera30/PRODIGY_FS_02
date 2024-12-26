@@ -201,7 +201,7 @@ html {
 
   .login {
     width: 80%;
-    margin-top: -8rem;
+    margin-top: -10rem;
   }
 
   html {
@@ -287,6 +287,11 @@ html {
   html {
     font-size: 70%;
   }
+
+
+.side-bar-container {
+  margin-top: 7rem;
+}
 
 }
 
