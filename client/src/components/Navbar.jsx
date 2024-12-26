@@ -28,6 +28,7 @@ function Navbar() {
             if (data.success) {
                 setUser(null)
                 toast.success(data.message)
+                localStorage.clear()
                 navigate("/login", { replace: true })
             }
 
@@ -42,6 +43,10 @@ function Navbar() {
         }
 
     }
+
+
+    console.log(`HELLO ${user}`);
+    
 
     return (
 

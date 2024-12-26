@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import imgLogo from '../assets/logo.png'
 import '../css/login.css'
 import { NavLink, useNavigate } from 'react-router-dom'
@@ -65,6 +65,14 @@ function Login() {
         }
 
     }
+
+
+useEffect(() => {
+
+    window.scrollTo(0, 0)
+
+},[])
+
 
 
     return (

@@ -4,6 +4,8 @@ import cors from 'cors'
 import cookieParser from "cookie-parser";
 import { add_leave, add_salary, authUser, change_password, create_otp, createDepartment, createEmployee, get_all_department, get_all_employee, get_all_leave, get_all_salaries, get_department_by_id, get_employee_by_id, get_leave_by_id, get_salaries_by_id, loginUser, logout, register, remove_department, remove_employee, remove_leaves, remove_salaries, update_department, update_employee, update_leaves, update_salaries, verifyEmail, verifyOtp } from "./controller/authController.js";
 import { protect } from './middleware/authentication_middleware.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 //import { protect } from './middleware/auth_middleware.js'
 
@@ -32,8 +34,8 @@ app.use(cors({
 
 app.post('/register', register)
 app.get("/getUser", protect, authUser)
-app.post("/verifyOtp", verifyOtp)
-app.post("/changePassword", change_password)
+app.put("/verifyOtp", verifyOtp)
+app.put("/changePassword", change_password)
 app.post("/verifyEmail", verifyEmail)
 app.post('/createOtp', create_otp)
 app.post("/login", loginUser)
@@ -66,9 +68,9 @@ app.put("/updateLeaves", update_leaves)
 app.delete("/removeLeave", remove_leaves)
 
 
+const MONGO_URL = process.env.MONGO_URL
 
-
-mongoose.connect('mongodb://localhost:27017/employeeDB').then(() => {
+mongoose.connect(MONGO_URL).then(() => {
 
     console.log("connected to the database...");
 

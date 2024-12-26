@@ -1,0 +1,34 @@
+.hero-container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-image: url('../assets/young-african-caucasian-men-women-sitting-office-working-laptops-business-emotions-team-teamwork-workplace-leadership-meeting-concept-different-emotions-colleagues.png');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, .4);
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content p{
+    color: #fff;
+    font-size: 2.2rem;
+    max-width: 30rem;
+}
+
+.hero-content .btnGetStarted{
+    color: #fff;
+    background: hsl(120, 89%, 41%);
+    border-radius: 3rem;
+    cursor: pointer;
+    padding: 1rem 2.5rem;
+    font-weight: 800;
+}

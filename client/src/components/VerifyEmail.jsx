@@ -21,6 +21,7 @@ function VerifyEmail() {
             const {data} = await axios.post(`http://localhost:8082/verifyEmail`, {email})
 
             if(data.success){
+                localStorage.setItem("email", email)
                 navigate("/verify-otp")
                 toast.success(data.message)
                 setData({email: ''})

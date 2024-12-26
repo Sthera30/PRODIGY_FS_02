@@ -63,7 +63,8 @@ export const register = async (req, res) => {
 
             res.cookie('token', token, {
                 httpOnly: true,
-                secure: false,
+                secure: process.env.NODE_ENV === "production",
+                sameSite: process.env.NODE_ENV === "production"? "None" : "Lax"
             })
 
 
@@ -147,7 +148,7 @@ export const create_otp = async (req, res) => {
             auth: {
 
                 user: 'tinisthera@gmail.com',
-                pass: 'evhrsmudgmuasuxk'
+                pass: 'ciujhxhgrkwhbxml'
 
             }
 
@@ -195,7 +196,8 @@ export const verifyOtp = async (req, res) => {
 
         const otp_ = await otpModel.findOne({ userEmail: email })
 
-        const user = await userModel.findOne({ email: email })
+        const user = await employeeModel.findOne({ email: email })
+
 
         user.isVerified = true
 
@@ -256,29 +258,21 @@ export const verifyEmail = async (req, res) => {
             service: 'Gmail',
             auth: {
                 user: 'tinisthera@gmail.com',
-                pass: 'evhrsmudgmuasuxk'
+                pass: 'ciujhxhgrkwhbxml'
             }
         })
 
         const mailOptions = {
-            from: 'Food Eats Team',
+            from: 'Employee Management Team',
             to: email,
             subject: 'OTP Verification Code',
             text: `${otpGen} is your verification code`
         }
 
-        transporter.sendMail(mailOptions, (err, info) => {
-
-            if (err) {
-                return res.status(200).json({ error: 'Failed sending an email...', success: false })
-            }
-
-            return res.status(200).json({ message: 'OTP sent successfully!', success: true })
-
-        })
+        transporter.sendMail(mailOptions)        
 
 
-        const user_email = await userModel.findOne({ email })
+        const user_email = await employeeModel.findOne({ email })
 
         if (!user_email) {
             return res.status(200).json({ error: 'Please first register email address!', success: false })
@@ -316,15 +310,19 @@ export const change_password = async (req, res) => {
         return res.status(200).json({ error: 'New password is required and must be atleast 6 characters long!!', success: false })
     }
 
-
+// change password from employee table
     try {
 
-        const user = await userModel.findOne({ email: email })
+        const user = await employeeModel.findOne({ email: email })
 
         if (user.isVerified) {
 
             if (currentPassword === newPassword) {
 
+                console.log(currentPassword);
+                console.log(newPassword);
+                
+                
                 const hashCurrentPassword = await hashPassword(currentPassword)
                 const hashNewPassword = await hasConfrimPassword(newPassword)
 
@@ -387,7 +385,8 @@ export const loginUser = async (req, res) => {
         res.cookie('token', token, {
 
             httpOnly: true,
-            secure: false  //  since in local dev u are running ur app in http
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production"? "None" : "Lax"  //  since in local dev u are running ur app in http
 
         })
 
@@ -422,7 +421,8 @@ export const logout = async (req, res) => {
         res.clearCookie('token', {
 
             httpOnly: true,
-            secure: false  //use false in local dev since uare running ur code in http
+            secure: process.env.NODE_ENV === "production",  //use false in local dev since uare running ur code in http
+            sameSite: process.env.NODE_ENV === "production"? "None" : "Lax"
         })
 
         return res.status(200).json({ message: 'Logged out successfully!', success: true })

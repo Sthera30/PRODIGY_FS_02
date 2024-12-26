@@ -37,28 +37,32 @@ function App() {
 
       <Route path={"/"} element={<Layouts />}>
 
-        <Route path={"/login"} element={<LoginPage />} />
-        <Route path={"/register"} element={<RegisterPage />} />
-        <Route path={"/verify-otp"} element={<OtpPage />} />
-        <Route path={"/change-password"} element={<ChangePasswordPage />} />
-        <Route path={"/verify-email"} element={<VerifyEmailPage />} />
-        <Route path={"/manage-employees"} element={<ManageEmployeesPage />} />
-        <Route path={"/employee"} element={<EmployeePage />} />
-        <Route path={"/manage-employees/employee-details/:id"} element={<EmployeeDetailsPage />} />
-        <Route path={"/edit-employee/:id"} element={<EditEmployeesPage />} />
-        <Route path={"/manage-departments"} element={<ManageDepartmentPages />} />
-        <Route path={"/department"} element={<DepartmentPages />} />
-        <Route path={"/edit-department/:id"} element={<EditDepartmentPages />} />
-        <Route path={"/manage-leave"} element = {<SickLeavePages />} />
-        <Route path={"/add-salary"} element = {<AddSalaryPages />} />
-        <Route path={"/manage-salary"} element = {<SalaryPages />} />
-        <Route path={"/edit-salary/:id"} element = {<EditSalaryPages />} />
-        <Route path={"/my-profile/:id"} element={<MyProfilePages />} />
-        <Route path={"/my-leave/:id"} element={<LeavePages />} />
-        <Route path={"/add-leave"} element={<EmployeeSickLeavePages />} />
-        <Route path={"/emp-salary/:id"} element={<EmpSalaryPages />} />
-        <Route path={"/leave-details/:id"} element={<LeaveDetailsPages />} />
-        <Route path={"/my-dashboard"} element={<DashboardPage />} />
+        <Route index element={<HomePage />} />
+        
+          <Route path={"/login"} element={<LoginPage />} />
+          <Route path={"/register"} element={<RegisterPage />} />
+          <Route path={"/verify-otp"} element={<OtpPage />} />
+          <Route path={"/change-password"} element={<ChangePasswordPage />} />
+          <Route path={"/verify-email"} element={<VerifyEmailPage />} />
+          <Route path={"/manage-employees"} element={<ManageEmployeesPage />} />
+          <Route path={"/employee"} element={<EmployeePage />} />
+          <Route path={"/manage-employees/employee-details/:id"} element={<EmployeeDetailsPage />} />
+          <Route path={"/edit-employee/:id"} element={<EditEmployeesPage />} />
+          <Route path={"/manage-departments"} element={<ManageDepartmentPages />} />
+          <Route path={"/department"} element={<DepartmentPages />} />
+          <Route path={"/edit-department/:id"} element={<EditDepartmentPages />} />
+          <Route path={"/manage-leave"} element={<SickLeavePages />} />
+          <Route path={"/add-salary"} element={<AddSalaryPages />} />
+          <Route path={"/manage-salary"} element={<SalaryPages />} />
+          <Route path={"/edit-salary/:id"} element={<EditSalaryPages />} />
+          <Route path={"/my-profile/:id"} element={<MyProfilePages />} />
+          <Route path={"/my-leave/:id"} element={<LeavePages />} />
+          <Route path={"/add-leave"} element={<EmployeeSickLeavePages />} />
+          <Route path={"/emp-salary/:id"} element={<EmpSalaryPages />} />
+          <Route path={"/leave-details/:id"} element={<LeaveDetailsPages />} />
+          <Route path={"/my-dashboard"} element={<DashboardPage />} />
+
+
 
       </Route>
 

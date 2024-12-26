@@ -30,6 +30,12 @@ const employeeSchema = mongoose.Schema({
         required: true
     },
 
+    isVerified: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+
     position: {
         type: String,
         required: true

@@ -23,7 +23,7 @@ function VerifyOtp() {
 
         try {
 
-            const { data } = await axios.post(`http://localhost:8082/verifyOtp`, { otp, email })
+            const { data } = await axios.put(`http://localhost:8082/verifyOtp`, { otp, email })
 
             if (data.success) {
                 toast.success(data.message)
@@ -53,7 +53,7 @@ function VerifyOtp() {
 
                     <div className='button-co'>
                         <input type="number" placeholder='Enter Your Code' onChange={(e) => setData({...data, otp: e.target.value})} />
-                        <button type='submit'>Verify Account</button>
+                        <button type='submit'>Verify Code</button>
                     </div>
 
                 </form>
