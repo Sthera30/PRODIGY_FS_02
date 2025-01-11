@@ -15,7 +15,7 @@ async function handle_fetch_employee(id) {
 
     try {
 
-        const res = await axios.get(`https://prodigy-fs-02-ems-backend-app.onrender.com/getEmployeeByid?id=${id}`)
+        const res = await axios.get(`https://prodigy-fs-02-backend.vercel.app/getEmployeeByid?id=${id}`)
 
         if(res.data.success){
             setEmployeeDetails(res.data.data.employee)

@@ -14,7 +14,7 @@ function SickLeave() {
   async function handle_fetch() {
 
     try {
-      const res = await axios.get("https://prodigy-fs-02-ems-backend-app.onrender.com/getAllLeaves")
+      const res = await axios.get("https://prodigy-fs-02-backend.vercel.app/getAllLeaves")
 
       if (res.data.success) {
         setLeaves(res.data.data.leave)

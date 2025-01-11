@@ -21,7 +21,7 @@ function Employee() {
         try {
 
 
-            const res = await axios.post(`https://prodigy-fs-02-ems-backend-app.onrender.com/createEmployee`, { name, email, gender, dob, maritalStatus, department, position, password, confirmPassword }, {withCredentials: true})
+            const res = await axios.post(`https://prodigy-fs-02-backend.vercel.app/createEmployee`, { name, email, gender, dob, maritalStatus, department, position, password, confirmPassword }, {withCredentials: true})
 
             if (res.data.success) {
                 toast.success(res.data.message)

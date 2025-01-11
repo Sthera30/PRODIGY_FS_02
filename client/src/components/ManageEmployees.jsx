@@ -16,7 +16,7 @@ function ManageEmployees() {
 
         try {
 
-            const res = await axios.get(`https://prodigy-fs-02-ems-backend-app.onrender.com/getAllEmployee`)
+            const res = await axios.get(`https://prodigy-fs-02-backend.vercel.app/getAllEmployee`)
 
             if (res.data.success) {
                 setEmployees(res.data.data.employee)
@@ -38,7 +38,7 @@ function ManageEmployees() {
 
         try {
 
-            const res = await axios.delete(`https://prodigy-fs-02-ems-backend-app.onrender.com/removeEmployee?id=${id}`)
+            const res = await axios.delete(`https://prodigy-fs-02-backend.vercel.app/removeEmployee?id=${id}`)
 
             if (res.data.success) {
                 toast.success(res.data.message)

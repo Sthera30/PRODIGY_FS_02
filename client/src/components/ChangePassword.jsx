@@ -24,7 +24,7 @@ function ChangePassword() {
 
         try {
 
-            const { data } = await axios.put(`https://prodigy-fs-02-ems-backend-app.onrender.com/changePassword`, { currentPassword, newPassword, email })
+            const { data } = await axios.put(`https://prodigy-fs-02-backend.vercel.app/changePassword`, { currentPassword, newPassword, email })
 
             if (data.success) {
                 toast.success(data.message)

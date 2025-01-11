@@ -19,7 +19,7 @@ function LeaveDetails() {
 
         try {
 
-            const res = await axios.get(`https://prodigy-fs-02-ems-backend-app.onrender.com/getLeaveById?id=${id}`)
+            const res = await axios.get(`https://prodigy-fs-02-backend.vercel.app/getLeaveById?id=${id}`)
 
             if (res.data.success) {
                 setLeaves(res.data.data.leave)
@@ -45,7 +45,7 @@ function LeaveDetails() {
 
         try {
 
-            const res = await axios.put(`https://prodigy-fs-02-ems-backend-app.onrender.com/updateLeaves`, { id, status })
+            const res = await axios.put(`https://prodigy-fs-02-backend.vercel.app/updateLeaves`, { id, status })
 
             if (res.data.success) {
                 toast.success(res.data.message)

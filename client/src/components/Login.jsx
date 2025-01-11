@@ -22,7 +22,7 @@ function Login() {
 
         try {
             //SEND COOKIES
-            const { data } = await axios.post("https://prodigy-fs-02-ems-backend-app.onrender.com/login", { email, password }, { withCredentials: true })
+            const { data } = await axios.post("https://prodigy-fs-02-backend.vercel.app/login", { email, password }, { withCredentials: true })
 
             if (data.error) {
                 toast.error(data.error)
@@ -37,7 +37,7 @@ function Login() {
 
                     try {
 
-                        const res = await axios.get('https://prodigy-fs-02-ems-backend-app.onrender.com/getUser', { withCredentials: true })
+                        const res = await axios.get('https://prodigy-fs-02-backend.vercel.app/getUser', { withCredentials: true })
 
                         if (res.data.success) {
                             setUser(res.data.data.user)

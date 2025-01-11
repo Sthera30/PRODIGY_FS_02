@@ -19,7 +19,7 @@ function MyProfile() {
 
         try {
 
-            const res = await axios.get(`https://prodigy-fs-02-ems-backend-app.onrender.com/getEmployeeById?id=${id}`)
+            const res = await axios.get(`https://prodigy-fs-02-backend.vercel.app/getEmployeeById?id=${id}`)
 
             if (res.data.success) {
                 setEmployee(res.data.data.employee)

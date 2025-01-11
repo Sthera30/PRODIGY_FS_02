@@ -20,7 +20,7 @@ function Register() {
 
         try {
 
-            const { data } = await axios.post(`https://prodigy-fs-02-ems-backend-app.onrender.com/register`, { name, email, password, confirmPassword }, {withCredentials: true})
+            const { data } = await axios.post(`https://prodigy-fs-02-backend.vercel.app/register`, { name, email, password, confirmPassword }, {withCredentials: true})
 
             if (data.success) {
                 toast.success(data.message)

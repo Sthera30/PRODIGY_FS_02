@@ -23,7 +23,7 @@ function Navbar() {
 
         try {
 
-            const { data } = await axios.post('https://prodigy-fs-02-ems-backend-app.onrender.com/logout', {}, { withCredentials: true })
+            const { data } = await axios.post('https://prodigy-fs-02-backend.vercel.app/logout', {}, { withCredentials: true })
 
             if (data.success) {
                 setUser(null)

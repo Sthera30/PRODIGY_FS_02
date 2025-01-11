@@ -14,7 +14,7 @@ function Salary() {
 
         try {
 
-            const res = await axios.get('https://prodigy-fs-02-ems-backend-app.onrender.com/getAllSalaries')
+            const res = await axios.get('https://prodigy-fs-02-backend.vercel.app/getAllSalaries')
 
             if (res.data.success) {
                 setSalaries(res.data.data.salaries)
@@ -38,7 +38,7 @@ function Salary() {
 
         try {
 
-            const res = await axios.delete(`https://prodigy-fs-02-ems-backend-app.onrender.com/removeSalaries?id=${id}`)
+            const res = await axios.delete(`https://prodigy-fs-02-backend.vercel.app/removeSalaries?id=${id}`)
 
             if (res.data.success) {
                 toast.success(res.data.message)
