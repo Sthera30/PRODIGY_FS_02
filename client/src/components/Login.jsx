@@ -37,7 +37,7 @@ function Login() {
 
                     try {
 
-                        const res = await axios.get('https://prodigy-fs-02-backend.vercel.app/getUser', { withCredentials: true })
+                        const res = await axios.get("https://prodigy-fs-02-backend.vercel.app/getUser", { withCredentials: true })
 
                         if (res.data.success) {
                             setUser(res.data.data.user)
