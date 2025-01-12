@@ -24,7 +24,7 @@ app.use(cookieParser())
 //cors
 app.use(cors({
 
-    origin: 'https://prodigy-fs-02-frontend-woad.vercel.app/',
+    origin: 'https://prodigy-fs-02-frontend-seven.vercel.app/',
     credentials: true
 
 }))
@@ -83,10 +83,6 @@ mongoose.connect(MONGO_URL).then(() => {
 }).catch((err) => {
 
     console.log('Failed to connect to the database!', err);
-})
-
-app.get("/", (req, res) => {
-    res.json("Hello")
 })
 
 
