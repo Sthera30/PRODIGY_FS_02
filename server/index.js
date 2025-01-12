@@ -24,7 +24,7 @@ app.use(cookieParser())
 //cors
 app.use(cors({
 
-    origin: 'https://prodigy-fs-02-frontend-seven.vercel.app/',
+    origin: 'https://prodigy-fs-02-frontend-tau.vercel.app/',
     credentials: true
 
 }))
