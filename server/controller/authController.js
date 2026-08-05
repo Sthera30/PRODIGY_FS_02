@@ -64,7 +64,7 @@ export const register = async (req, res) => {
             res.cookie('token', token, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
-                sameSite: process.env.NODE_ENV === "production"? "None" : "Lax"
+                sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax"
             })
 
 
@@ -94,32 +94,36 @@ export const authUser = async (req, res) => {
 
     try {
 
-        /*  const email = 'tinisthera@gmail.com'
-  
-          console.log(email);
-          */
-
-        const user = await employeeModel.findOne({ email: req.user.email })
+        let user = await userModel.findOne({ email: req.user.email });
 
         if (!user) {
-            return res.status(200).json({ error: 'User not found!', success: false })
+            user = await employeeModel.findOne({ email: req.user.email });
+        }
 
+        if (!user) {
+            return res.status(200).json({
+                error: "User not found!",
+                success: false
+            });
         }
 
         return res.status(200).json({
-            message: 'User Found!', success: true, data: {
-                user: user
+            success: true,
+            message: "User Found!",
+            data: {
+                user
             }
-        })
-
+        });
 
     } catch (error) {
         console.log(error);
-        return res.status(200).json({ error: 'Failed Authenticating User!', success: false })
+
+        return res.status(500).json({
+            error: "Failed Authenticating User!",
+            success: false
+        });
     }
-
-
-}
+};
 
 
 export const create_otp = async (req, res) => {
@@ -269,7 +273,7 @@ export const verifyEmail = async (req, res) => {
             text: `${otpGen} is your verification code`
         }
 
-        transporter.sendMail(mailOptions)        
+        transporter.sendMail(mailOptions)
 
 
         const user_email = await employeeModel.findOne({ email })
@@ -310,7 +314,7 @@ export const change_password = async (req, res) => {
         return res.status(200).json({ error: 'New password is required and must be atleast 6 characters long!!', success: false })
     }
 
-// change password from employee table
+    // change password from employee table
     try {
 
         const user = await employeeModel.findOne({ email: email })
@@ -321,8 +325,8 @@ export const change_password = async (req, res) => {
 
                 console.log(currentPassword);
                 console.log(newPassword);
-                
-                
+
+
                 const hashCurrentPassword = await hashPassword(currentPassword)
                 const hashNewPassword = await hasConfrimPassword(newPassword)
 
@@ -355,64 +359,69 @@ export const change_password = async (req, res) => {
 
 export const loginUser = async (req, res) => {
 
-    const { password, email } = req.body
+    const { email, password } = req.body;
 
     try {
 
         if (!email) {
-            return res.status(200).json({ error: 'Email is required!', success: false })
+            return res.status(200).json({ error: "Email is required!", success: false });
         }
 
         if (!password) {
-            return res.status(200).json({ error: 'Password is required!', success: false })
+            return res.status(200).json({ error: "Password is required!", success: false });
         }
 
-        const user = await employeeModel.findOne({ email: email })
+        // Check admin first
+        let user = await userModel.findOne({ email });
 
+        // If not an admin, check employees
+        if (!user) {
+            user = await employeeModel.findOne({ email });
+        }
 
+        console.log("User found:", user);
 
         if (!user) {
-            return res.status(200).json({ error: 'invalid login details!', success: false })
+            return res.status(200).json({
+                error: "Invalid login details!",
+                success: false
+            });
         }
 
-        //Used to store user info
-        const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
-            expiresIn: '1d'
-        })
-
-        //Store token in cookie
-
-        res.cookie('token', token, {
-
-            httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: process.env.NODE_ENV === "production"? "None" : "Lax"  //  since in local dev u are running ur app in http
-
-        })
-
-        //compare passwords
-
-        const isMatch = await comparePassword(password, user.password)
+        const isMatch = await comparePassword(password, user.password);
 
         if (!isMatch) {
-            return res.status(200).json({ error: 'Wrong Password!', success: false })
+            return res.status(200).json({
+                error: "Wrong Password!",
+                success: false
+            });
         }
 
-        return res.status(200).json({
-            message: '', success: true, data: {
-                user: user,
-                token
-            }
-        })
+        const token = jwt.sign(
+            { email: user.email },
+            process.env.JWT_SECRET,
+            { expiresIn: "1d" }
+        );
 
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "production",
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+        });
+
+        return res.status(200).json({
+            success: true,
+            data: {
+                user,
+                token,
+            },
+        });
 
     } catch (error) {
         console.log(error);
-        return res.status(500).json({ error: 'Internal Server Error!' })
+        return res.status(500).json({ error: "Internal Server Error!" });
     }
-
-
-}
+};
 
 export const logout = async (req, res) => {
 
@@ -422,7 +431,7 @@ export const logout = async (req, res) => {
 
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",  //use false in local dev since uare running ur code in http
-            sameSite: process.env.NODE_ENV === "production"? "None" : "Lax"
+            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax"
         })
 
         return res.status(200).json({ message: 'Logged out successfully!', success: true })
@@ -442,7 +451,7 @@ export const createEmployee = async (req, res) => {
 
     const { name, email, gender, dob, maritalStatus, department, position, password, confirmPassword } = req.body
 
-    
+
 
     try {
 
@@ -454,7 +463,7 @@ export const createEmployee = async (req, res) => {
             return res.status(200).json({ error: 'email is required!', success: false })
         }
 
-        if(!gender){
+        if (!gender) {
             return res.status(200).json({ error: 'gender is required!', success: false })
         }
 
@@ -495,7 +504,7 @@ export const createEmployee = async (req, res) => {
             const hashPass = await hashPassword(password)
             const hashConfirmPass = await hasConfrimPassword(confirmPassword)
 
-            const user = await employeeModel.create({ name: name, email: email, gender:gender, DOB:dob, maritalStatus:maritalStatus, department: department, position:position, password: hashPass, confirmPassword: hashConfirmPass })
+            const user = await employeeModel.create({ name: name, email: email, gender: gender, DOB: dob, maritalStatus: maritalStatus, department: department, position: position, password: hashPass, confirmPassword: hashConfirmPass })
 
 
             //JWT stores user information
@@ -534,22 +543,22 @@ export const createEmployee = async (req, res) => {
         return res.status(500).json({ error: 'Failed to register employee!', success: false })
     }
 
-      
 
-     /*   const employee_ = await employeeModel.create({ name: name, email: email, gender: gender, DOB:dob, maritalStatus:maritalStatus, department: department, position: position })
 
-        return res.status(200).json({
-            message: 'employee added successfully!', success: true, data: {
-                employee_: employee_
-            }
-        })
+    /*   const employee_ = await employeeModel.create({ name: name, email: email, gender: gender, DOB:dob, maritalStatus:maritalStatus, department: department, position: position })
 
-    } catch (error) {
-        console.log(error);
-        return res.status(500).json({ error: 'Internal Server Error!' })
+       return res.status(200).json({
+           message: 'employee added successfully!', success: true, data: {
+               employee_: employee_
+           }
+       })
 
-    }
-        */
+   } catch (error) {
+       console.log(error);
+       return res.status(500).json({ error: 'Internal Server Error!' })
+
+   }
+       */
 
 }
 
@@ -588,7 +597,7 @@ export const get_employee_by_id = async (req, res) => {
 
         const employee = await employeeModel.findById(id)
 
-        
+
 
         if (!employee) {
             return res.status(200).json({ error: 'No data found in the database!', success: false })
@@ -606,7 +615,7 @@ export const get_employee_by_id = async (req, res) => {
         return res.status(500).json({ error: 'Internal server error!' })
     }
 
-// Register a user by yourself since u are ann admin
+    // Register a user by yourself since u are ann admin
 }
 
 export const update_employee = async (req, res) => {
@@ -662,21 +671,21 @@ export const update_employee = async (req, res) => {
 
 export const remove_employee = async (req, res) => {
 
-    const {id} = req.query
+    const { id } = req.query
 
     try {
 
         const employee = await employeeModel.findByIdAndDelete(id)
 
-        if(!employee){
-            return res.status(200).json({error: 'No data in the database found!', success: false})
+        if (!employee) {
+            return res.status(200).json({ error: 'No data in the database found!', success: false })
         }
 
-        return res.status(200).json({message: 'Deleted successfully!', success: true})
-        
+        return res.status(200).json({ message: 'Deleted successfully!', success: true })
+
     } catch (error) {
         console.log(error);
-        return res.status(500).json({error: 'Internal server error!'})
+        return res.status(500).json({ error: 'Internal server error!' })
     }
 
 }
@@ -686,7 +695,7 @@ export const remove_employee = async (req, res) => {
 export const createDepartment = async (req, res) => {
 
 
-    const {departmentName } = req.body
+    const { departmentName } = req.body
 
 
     try {
@@ -696,7 +705,7 @@ export const createDepartment = async (req, res) => {
         }
 
 
-        const department = await departmentModel.create({departmentName: departmentName})
+        const department = await departmentModel.create({ departmentName: departmentName })
 
         return res.status(200).json({
             message: 'department added successfully!', success: true, data: {
@@ -802,65 +811,67 @@ export const update_department = async (req, res) => {
 
 export const remove_department = async (req, res) => {
 
-    const {id} = req.query
+    const { id } = req.query
 
     try {
 
         const department = await departmentModel.findByIdAndDelete(id)
 
-        if(!department){
-            return res.status(200).json({error: 'No data in the database found!', success: false})
+        if (!department) {
+            return res.status(200).json({ error: 'No data in the database found!', success: false })
         }
 
-        return res.status(200).json({message: 'Deleted successfully!', success: true})
-        
+        return res.status(200).json({ message: 'Deleted successfully!', success: true })
+
     } catch (error) {
         console.log(error);
-        return res.status(500).json({error: 'Internal server error!'})
+        return res.status(500).json({ error: 'Internal server error!' })
     }
 
 }
 
 export const add_salary = async (req, res) => {
 
-    const {departmentId, employeeId, salary, allowance, deduction, paymentDate} = req.body
+    const { departmentId, employeeId, salary, allowance, deduction, paymentDate } = req.body
 
     try {
 
-        if(!departmentId){
-            return res.status(200).json({error: 'department is required!', success: false})
-        }
-        
-        if(!employeeId){
-            return res.status(200).json({error: 'employee is required!', success: false})
+        if (!departmentId) {
+            return res.status(200).json({ error: 'department is required!', success: false })
         }
 
-        if(!salary){
-            return res.status(200).json({error: 'salary is required!', success: false})
+        if (!employeeId) {
+            return res.status(200).json({ error: 'employee is required!', success: false })
         }
 
-        if(!allowance){
-            return res.status(200).json({error: 'allowance is required!', success: false})
+        if (!salary) {
+            return res.status(200).json({ error: 'salary is required!', success: false })
         }
 
-        if(!deduction){
-            return res.status(200).json({error: 'deduction is required!', success: false})
+        if (!allowance) {
+            return res.status(200).json({ error: 'allowance is required!', success: false })
         }
 
-        if(!paymentDate){
-            return res.status(200).json({error: 'payment date is required!', success: false})
+        if (!deduction) {
+            return res.status(200).json({ error: 'deduction is required!', success: false })
         }
 
-        
-        const salaries = await salaryModel.create({departmentId: departmentId, employeeId: employeeId, salary: salary, allowance: allowance, deduction: deduction, paymentDate: paymentDate})
+        if (!paymentDate) {
+            return res.status(200).json({ error: 'payment date is required!', success: false })
+        }
 
-        return res.status(200).json({message: 'Added successfully!', success: true, data: {
-            salaries: salaries
-        }})
+
+        const salaries = await salaryModel.create({ departmentId: departmentId, employeeId: employeeId, salary: salary, allowance: allowance, deduction: deduction, paymentDate: paymentDate })
+
+        return res.status(200).json({
+            message: 'Added successfully!', success: true, data: {
+                salaries: salaries
+            }
+        })
 
     } catch (error) {
         console.log(error);
-        return res.status(500).json({error: 'Internal Server Error!', success: false})
+        return res.status(500).json({ error: 'Internal Server Error!', success: false })
     }
 
 }
@@ -925,28 +936,28 @@ export const update_salaries = async (req, res) => {
 
     try {
 
-        if(!departmentId){
-            return res.status(200).json({error: 'department is required!', success: false})
-        }
-        
-        if(!employeeId){
-            return res.status(200).json({error: 'employee is required!', success: false})
+        if (!departmentId) {
+            return res.status(200).json({ error: 'department is required!', success: false })
         }
 
-        if(!salary){
-            return res.status(200).json({error: 'salary is required!', success: false})
+        if (!employeeId) {
+            return res.status(200).json({ error: 'employee is required!', success: false })
         }
 
-        if(!allowance){
-            return res.status(200).json({error: 'allowance is required!', success: false})
+        if (!salary) {
+            return res.status(200).json({ error: 'salary is required!', success: false })
         }
 
-        if(!deduction){
-            return res.status(200).json({error: 'deduction is required!', success: false})
+        if (!allowance) {
+            return res.status(200).json({ error: 'allowance is required!', success: false })
         }
 
-        if(!paymentDate){
-            return res.status(200).json({error: 'payment date is required!', success: false})
+        if (!deduction) {
+            return res.status(200).json({ error: 'deduction is required!', success: false })
+        }
+
+        if (!paymentDate) {
+            return res.status(200).json({ error: 'payment date is required!', success: false })
         }
 
         const salaries = await salaryModel.findById(id)
@@ -979,21 +990,21 @@ export const update_salaries = async (req, res) => {
 
 export const remove_salaries = async (req, res) => {
 
-    const {id} = req.query
+    const { id } = req.query
 
     try {
 
         const salaries = await salaryModel.findByIdAndDelete(id)
 
-        if(!salaries){
-            return res.status(200).json({error: 'No data in the database found!', success: false})
+        if (!salaries) {
+            return res.status(200).json({ error: 'No data in the database found!', success: false })
         }
 
-        return res.status(200).json({message: 'Deleted successfully!', success: true})
-        
+        return res.status(200).json({ message: 'Deleted successfully!', success: true })
+
     } catch (error) {
         console.log(error);
-        return res.status(500).json({error: 'Internal server error!'})
+        return res.status(500).json({ error: 'Internal server error!' })
     }
 
 }
@@ -1002,41 +1013,43 @@ export const remove_salaries = async (req, res) => {
 
 export const add_leave = async (req, res) => {
 
-    const {leaveType, employeeId, fromDate, ToDate, description} = req.body
+    const { leaveType, employeeId, fromDate, ToDate, description } = req.body
 
     try {
 
-        if(!leaveType){
-            return res.status(200).json({error: 'leave type is required!', success: false})
+        if (!leaveType) {
+            return res.status(200).json({ error: 'leave type is required!', success: false })
         }
 
-        if(!employeeId){
-            return res.status(200).json({error: 'employeeId is required!', success: false})
+        if (!employeeId) {
+            return res.status(200).json({ error: 'employeeId is required!', success: false })
         }
 
-        
-        if(!fromDate){
-            return res.status(200).json({error: 'from date is required!', success: false})
+
+        if (!fromDate) {
+            return res.status(200).json({ error: 'from date is required!', success: false })
         }
 
-        if(!ToDate){
-            return res.status(200).json({error: 'To date is required!', success: false})
+        if (!ToDate) {
+            return res.status(200).json({ error: 'To date is required!', success: false })
         }
 
-        if(!description){
-            return res.status(200).json({error: 'leave description is required!', success: false})
+        if (!description) {
+            return res.status(200).json({ error: 'leave description is required!', success: false })
         }
 
-        
-        const leave = await leaveModel.create({leaveType: leaveType, employeeId: employeeId, fromDate: fromDate, ToDate: ToDate, description: description})
 
-        return res.status(200).json({message: 'Added successfully!', success: true, data: {
-            leave: leave
-        }})
+        const leave = await leaveModel.create({ leaveType: leaveType, employeeId: employeeId, fromDate: fromDate, ToDate: ToDate, description: description })
+
+        return res.status(200).json({
+            message: 'Added successfully!', success: true, data: {
+                leave: leave
+            }
+        })
 
     } catch (error) {
         console.log(error);
-        return res.status(500).json({error: 'Internal Server Error!', success: false})
+        return res.status(500).json({ error: 'Internal Server Error!', success: false })
     }
 
 }
@@ -1101,10 +1114,10 @@ export const update_leaves = async (req, res) => {
 
     try {
 
-        if(!status){
-            return res.status(200).json({error: 'leave status is required!', success: false})
+        if (!status) {
+            return res.status(200).json({ error: 'leave status is required!', success: false })
         }
-        
+
 
         const leave = await leaveModel.findById(id)
 
@@ -1131,21 +1144,21 @@ export const update_leaves = async (req, res) => {
 
 export const remove_leaves = async (req, res) => {
 
-    const {id} = req.query
+    const { id } = req.query
 
     try {
 
         const leave = await leaveModel.findByIdAndDelete(id)
 
-        if(!leave){
-            return res.status(200).json({error: 'No data in the database found!', success: false})
+        if (!leave) {
+            return res.status(200).json({ error: 'No data in the database found!', success: false })
         }
 
-        return res.status(200).json({message: 'Deleted successfully!', success: true})
-        
+        return res.status(200).json({ message: 'Deleted successfully!', success: true })
+
     } catch (error) {
         console.log(error);
-        return res.status(500).json({error: 'Internal server error!'})
+        return res.status(500).json({ error: 'Internal server error!' })
     }
 
 }

@@ -22,12 +22,21 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 //cors
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://prodigy-fs-02-frontend-tau.vercel.app"
+];
+
 app.use(cors({
-
-    origin: 'https://prodigy-fs-02-frontend-tau.vercel.app',
-    credentials: true
-
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 
 
 //ROUTES
@@ -73,17 +82,13 @@ const PORT = process.env.PORT || 8082
 
 mongoose.connect(MONGO_URL).then(() => {
 
-    console.log("connected to the database...");
+    console.log("Connected to database:", mongoose.connection.db.databaseName);
 
     app.listen(PORT, () => {
+        console.log("Server listening...");
+    });
 
-        console.log('server is listening at port 8082....');
-    })
-
-}).catch((err) => {
-
-    console.log('Failed to connect to the database!', err);
-})
+});
 
 app.get("/", (req, res) => {
     res.json("Hello")
