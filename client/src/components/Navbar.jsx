@@ -45,8 +45,7 @@ function Navbar() {
     }
 
 
-    console.log(`HELLO ${user}`);
-    
+console.log(user);    
 
     return (
 

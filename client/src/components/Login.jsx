@@ -37,14 +37,18 @@ function Login() {
 
                     try {
 
-                        const res = await axios.get("https://prodigy-fs-02-backend.vercel.app/getUser", { withCredentials: true })
+                        const res = await axios.get("https://prodigy-fs-02-backend.vercel.app/getUser", {
+                            withCredentials: true
+                        });
+
+                        console.log("GET USER RESPONSE:", res.data);
 
                         if (res.data.success) {
-                            setUser(res.data.data.user)
-                        }
-
-                        else {
-                            setUser(null)
+                            console.log("Setting user:", res.data.data.user);
+                            setUser(res.data.data.user);
+                        } else {
+                            console.log("No user returned");
+                            setUser(null);
                         }
 
                     } catch (error) {
@@ -67,11 +71,11 @@ function Login() {
     }
 
 
-useEffect(() => {
+    useEffect(() => {
 
-    window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
 
-},[])
+    }, [])
 
 
 
@@ -133,7 +137,7 @@ useEffect(() => {
 
                         <button type='submit' className='btnSignIn'>Sign In</button>
 
-                    {/*<NavLink to={"/register"} style={{ color: '#333', textDecoration: 'none' }}>Need an account? &nbsp; <span className='sign-up'>SIGN UP</span></NavLink> */}    
+                        {/*<NavLink to={"/register"} style={{ color: '#333', textDecoration: 'none' }}>Need an account? &nbsp; <span className='sign-up'>SIGN UP</span></NavLink> */}
 
                     </form>
 
